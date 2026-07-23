@@ -1,0 +1,1001 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0B0B0F" />
+  <meta name="color-scheme" content="dark" />
+
+  <title>FragTrack — AI-Powered PUBG Mobile Performance Analytics</title>
+  <meta name="description" content="FragTrack is the AI-powered analytics platform for PUBG Mobile. Upload a match screenshot and unlock deep performance intelligence — KD curves, weapon efficiency, survival heatmaps and rank momentum." />
+  <meta name="keywords" content="PUBG Mobile, FragTrack, PUBG analytics, AI screenshot analysis, PUBG performance tracking, PUBG KD tracker, PUBG stats, battle royale analytics, PUBG weapon stats, PUBG rank tracker" />
+  <link rel="canonical" href="https://fragtrack.app/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="FragTrack Labs" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fragtrack.app/" />
+  <meta property="og:title" content="FragTrack — AI-Powered PUBG Mobile Performance Analytics" />
+  <meta property="og:description" content="Upload a match screenshot and unlock deep performance intelligence — KD curves, weapon efficiency, survival heatmaps and rank momentum." />
+  <meta property="og:image" content="https://fragtrack.app/og-image.jpg" />
+  <meta property="og:site_name" content="FragTrack" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FragTrack — AI-Powered PUBG Mobile Performance Analytics" />
+  <meta name="twitter:description" content="Upload a match screenshot and unlock deep performance intelligence — KD curves, weapon efficiency, survival heatmaps and rank momentum." />
+  <meta name="twitter:image" content="https://fragtrack.app/og-image.jpg" />
+  <meta name="twitter:site" content="@fragtrack" />
+
+  <link rel="icon" type="image/png" href="" />
+  <link rel="apple-touch-icon" href="/logo.png" />
+
+  <!-- Preload critical assets -->
+  <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&display=swap" as="style" />
+  <link rel="preload" as="image" href="/logo.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Security: CSP via meta tag (static site) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com 'unsafe-inline'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https:; connect-src 'self' https:; frame-src 'none'; object-src 'none'" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "FragTrack Labs",
+    "url": "https://fragtrack.app",
+    "logo": "https://fragtrack.app/logo.png",
+    "description": "AI-powered analytics platform for PUBG Mobile performance tracking.",
+    "founder": { "@type": "Person", "name": "FragTrack Team" },
+    "sameAs": [
+      "https://x.com/fragtrack",
+      "https://discord.gg/fragtrack",
+      "https://youtube.com/@fragtrack",
+      "https://instagram.com/fragtrack",
+      "https://github.com/fragtrack"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "FragTrack",
+    "url": "https://fragtrack.app",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://fragtrack.app/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Which devices does FragTrack support?", "acceptedAnswer": { "@type": "Answer", "text": "Any device that runs PUBG Mobile — Android, iOS, iPad, tablets, and emulator screenshots. Resolution and language are auto-detected." } },
+      { "@type": "Question", "name": "How accurate is the AI screenshot reader?", "acceptedAnswer": { "@type": "Answer", "text": "Currently 98.7% across 48M+ processed matches. Every ambiguous frame is flagged and never silently guessed." } },
+      { "@type": "Question", "name": "Is my data private?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Screenshots are encrypted in transit and at rest, anonymized for model improvement, and never sold. You can delete your account and data anytime." } },
+      { "@type": "Question", "name": "Can I use FragTrack with my team?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. The Team plan supports up to 8 seats with coach mode, synergy scores and white-label match reports." } },
+      { "@type": "Question", "name": "Do you support tournaments and scrims?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we power performance dashboards for multiple tier-1 orgs. Contact sales for tournament-level integrations." } },
+      { "@type": "Question", "name": "Is there a free tier?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Free forever with 10 analyses per month. Upgrade whenever you're ready." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Skip to content -->
+  <a href="#top" class="skip-link" tabindex="0">Skip to main content</a>
+
+  <!-- ============== CUSTOM CURSOR ============== -->
+  <div class="cursor" id="cursor" aria-hidden="true" role="presentation">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"></div>
+  </div>
+
+  <!-- ============== SCROLL PROGRESS ============== -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true" role="presentation"><span></span></div>
+
+  <!-- ============== NAV ============== -->
+  <header class="nav" id="nav" data-testid="nav-header" role="banner">
+    <a href="#top" class="nav__logo" data-testid="nav-logo" aria-label="FragTrack home">
+      <img src="/logo.png" alt="FragTrack" width="98" height="22" />
+    </a>
+
+    <nav class="nav__links" aria-label="Primary navigation">
+      <a href="#features" class="nav__link" data-testid="nav-link-features">Features</a>
+      <a href="#how" class="nav__link" data-testid="nav-link-how">How it Works</a>
+      <a href="#dashboard" class="nav__link" data-testid="nav-link-dashboard">Product</a>
+      <a href="#pricing" class="nav__link" data-testid="nav-link-pricing">Pricing</a>
+      <a href="#faq" class="nav__link" data-testid="nav-link-faq">FAQ</a>
+      <a href="/blogs/" class="nav__link" data-testid="nav-link-blog">Blog</a>
+    </nav>
+
+    <div class="nav__cta">
+      <a href="/signup" class="btn btn--ghost" data-testid="nav-signin" rel="nofollow">Sign in</a>
+      <a href="/signup" class="btn btn--primary" data-testid="nav-cta" rel="nofollow">
+        <span>Launch app</span>
+        <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <button class="nav__burger" id="burger" aria-label="Toggle navigation menu" data-testid="nav-burger" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="#features" tabindex="-1">Features</a>
+    <a href="#how" tabindex="-1">How it Works</a>
+    <a href="#dashboard" tabindex="-1">Product</a>
+    <a href="#pricing" tabindex="-1">Pricing</a>
+    <a href="#faq" tabindex="-1">FAQ</a>
+    <a href="/blogs/" tabindex="-1">Blog</a>
+    <hr class="mobile-menu__divider" />
+    <a href="/signup" class="mobile-menu__auth" tabindex="-1">Register</a>
+    <a href="/signup" class="mobile-menu__auth" tabindex="-1">Sign in</a>
+    <hr class="mobile-menu__divider" />
+    <a href="/signup" class="btn btn--primary btn--lg" style="width:100%;justify-content:center" tabindex="-1">Launch app</a>
+  </div>
+
+  <!-- ============== MAIN ============== -->
+  <main id="top">
+
+    <!-- ============== HERO ============== -->
+    <section class="hero" data-testid="hero" aria-label="Hero section">
+      <div class="hero__bg">
+        <div class="blob blob--cyan" aria-hidden="true"></div>
+        <div class="blob blob--purple" aria-hidden="true"></div>
+        <div class="blob blob--blue" aria-hidden="true"></div>
+        <div class="grid-lines" aria-hidden="true"></div>
+        <div class="noise" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero__topline">
+        <span class="dot" aria-hidden="true"></span>
+        <em>v2.4 &middot; Live AI screenshot engine</em>
+        <a href="#how">Read manifesto <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+      </div>
+
+      <div class="hero__grid">
+        <div class="hero__left">
+          <h1 class="hero__title" data-testid="hero-title">
+            <span class="line"><span class="line__inner">Analyze your</span></span>
+            <span class="line"><span class="line__inner"><em>PUBG</em> performance</span></span>
+            <span class="line"><span class="line__inner">with <span class="grad">artificial intelligence.</span></span></span>
+          </h1>
+
+          <p class="hero__sub" data-testid="hero-sub">
+            FragTrack turns a single match screenshot into a full tactical report &mdash; KD curves, weapon efficiency, survival heatmaps and rank momentum. Built for pros. Loved by squads.
+          </p>
+
+          <div class="hero__cta">
+            <a href="/signup" class="btn btn--primary btn--lg btn--shine" data-testid="hero-cta-primary" rel="nofollow">
+              <span>Start tracking free</span>
+              <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+            </a>
+            <a href="#dashboard" class="btn btn--ghost btn--lg" data-testid="hero-cta-secondary">
+              <i class="fa-solid fa-play" aria-hidden="true"></i>
+              <span>Watch product tour</span>
+            </a>
+          </div>
+
+          <div class="hero__proof">
+            <div class="avatars" aria-hidden="true">
+              <span style="background:linear-gradient(135deg,#7C3AED,#3B82F6)" aria-label="Player 1"></span>
+              <span style="background:linear-gradient(135deg,#22D3EE,#3B82F6)" aria-label="Player 2"></span>
+              <span style="background:linear-gradient(135deg,#EC4899,#7C3AED)" aria-label="Player 3"></span>
+              <span style="background:linear-gradient(135deg,#F59E0B,#EF4444)" aria-label="Player 4"></span>
+            </div>
+            <div>
+              <b>2.4M+ players</b>
+              <em>trust FragTrack across 84 countries</em>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__right" data-parallax>
+          <!-- floating stat cards -->
+          <div class="floater floater--kd" data-float="1" role="figure" aria-label="KD Ratio statistic">
+            <div class="floater__label">KD Ratio</div>
+            <div class="floater__value">4.82 <i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i></div>
+            <div class="floater__meta">+0.34 last 20 matches</div>
+            <div class="spark"><svg viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><polyline points="0,22 12,20 22,15 34,18 46,10 58,12 70,6 82,9 100,3" fill="none" stroke="url(#g1)" stroke-width="2"/><defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#7C3AED"/></linearGradient></defs></svg></div>
+          </div>
+
+          <div class="floater floater--acc" data-float="2" role="figure" aria-label="Headshot percentage statistic">
+            <div class="floater__label">Headshot %</div>
+            <div class="floater__value">63.4<em>%</em></div>
+            <div class="ring"><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="26" stroke="rgba(255,255,255,.08)" stroke-width="4" fill="none"/><circle cx="30" cy="30" r="26" stroke="url(#g2)" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="60" transform="rotate(-90 30 30)"/><defs><linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#3B82F6"/><stop offset="1" stop-color="#22D3EE"/></linearGradient></defs></svg></div>
+          </div>
+
+          <div class="floater floater--rank" data-float="3" role="figure" aria-label="Season rank statistic">
+            <div class="floater__label">Season Rank</div>
+            <div class="floater__value floater__value--sm"><span class="grad">Conqueror</span></div>
+            <div class="floater__meta"><i class="fa-solid fa-trophy" aria-hidden="true"></i> Top 0.4% &middot; Asia</div>
+          </div>
+
+          <!-- Dashboard mockup -->
+          <div class="mockup" data-testid="hero-mockup" role="img" aria-label="FragTrack dashboard preview">
+            <div class="mockup__glow"></div>
+            <div class="mockup__window">
+              <div class="mockup__bar">
+                <span></span><span></span><span></span>
+                <em>fragtrack.app / dashboard</em>
+              </div>
+              <div class="mockup__body">
+                <div class="mockup__side">
+                  <div class="mockup__logo"><img src="/landing/assets/logo.png" alt="" aria-hidden="true" /></div>
+                  <ul>
+                    <li class="active"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Overview</li>
+                    <li><i class="fa-solid fa-crosshairs" aria-hidden="true"></i> Weapons</li>
+                    <li><i class="fa-solid fa-map" aria-hidden="true"></i> Maps</li>
+                    <li><i class="fa-solid fa-users" aria-hidden="true"></i> Squad</li>
+                    <li><i class="fa-solid fa-medal" aria-hidden="true"></i> Rank</li>
+                  </ul>
+                </div>
+                <div class="mockup__main">
+                  <div class="mockup__row">
+                    <div class="mockup__stat">
+                      <em>Damage / match</em>
+                      <b>1,847</b>
+                      <i class="up"><i class="fa-solid fa-caret-up" aria-hidden="true"></i> 18.2%</i>
+                    </div>
+                    <div class="mockup__stat">
+                      <em>Survival</em>
+                      <b>21:42</b>
+                      <i class="up"><i class="fa-solid fa-caret-up" aria-hidden="true"></i> 6.4%</i>
+                    </div>
+                    <div class="mockup__stat">
+                      <em>Chicken dinners</em>
+                      <b>147</b>
+                      <i class="up"><i class="fa-solid fa-caret-up" aria-hidden="true"></i> 12.1%</i>
+                    </div>
+                  </div>
+                  <div class="mockup__chart">
+                    <svg viewBox="0 0 300 120" preserveAspectRatio="none" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="area" x1="0" x2="0" y1="0" y2="1">
+                          <stop offset="0" stop-color="#22D3EE" stop-opacity=".55"/>
+                          <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="stroke" x1="0" x2="1"><stop offset="0" stop-color="#3B82F6"/><stop offset=".5" stop-color="#7C3AED"/><stop offset="1" stop-color="#22D3EE"/></linearGradient>
+                      </defs>
+                      <path d="M0,90 L20,80 L40,88 L60,64 L80,72 L100,50 L120,58 L140,40 L160,46 L180,28 L200,36 L220,22 L240,30 L260,14 L280,20 L300,8 L300,120 L0,120 Z" fill="url(#area)"/>
+                      <path d="M0,90 L20,80 L40,88 L60,64 L80,72 L100,50 L120,58 L140,40 L160,46 L180,28 L200,36 L220,22 L240,30 L260,14 L280,20 L300,8" fill="none" stroke="url(#stroke)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <div class="mockup__bars">
+                    <div><i style="height:70%"></i><em>M416</em></div>
+                    <div><i style="height:52%"></i><em>AKM</em></div>
+                    <div><i style="height:86%"></i><em>SCAR</em></div>
+                    <div><i style="height:38%"></i><em>UMP</em></div>
+                    <div><i style="height:64%"></i><em>M24</em></div>
+                    <div><i style="height:74%"></i><em>Kar98</em></div>
+                    <div><i style="height:44%"></i><em>DP-28</em></div>
+                    <div><i style="height:58%"></i><em>Vector</em></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="hero__scroll-line"><i></i></div>
+      </div>
+    </section>
+
+    <!-- ============== TRUSTED STATS (CHAPTER 01) ============== -->
+    <section class="chapter stats" id="stats" data-testid="stats" aria-label="Statistics section">
+      <div class="chapter__head">
+        <div class="chapter__num">01</div>
+        <div class="chapter__label">Trusted worldwide</div>
+        <div class="chapter__line"></div>
+      </div>
+
+      <h2 class="chapter__title">
+        <span class="line"><span class="line__inner">The numbers behind</span></span>
+        <span class="line"><span class="line__inner">the <em>battleground.</em></span></span>
+      </h2>
+
+      <div class="stats__grid">
+        <div class="stat" data-testid="stat-players">
+          <b class="counter" data-count="2400000" data-suffix="+" aria-label="2.4 million players analyzed">0</b>
+          <em>Players analyzed</em>
+        </div>
+        <div class="stat">
+          <b class="counter" data-count="48000000" data-suffix="+" aria-label="48 million matches processed">0</b>
+          <em>Matches processed</em>
+        </div>
+        <div class="stat">
+          <b class="counter" data-count="98.7" data-decimals="1" data-suffix="%" aria-label="98.7 percent AI accuracy">0</b>
+          <em>AI accuracy</em>
+        </div>
+        <div class="stat">
+          <b class="counter" data-count="84" aria-label="84 countries">0</b>
+          <em>Countries</em>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== MARQUEE ============== -->
+    <section class="marquee" aria-label="Rotating tagline">
+      <div class="marquee__track">
+        <span>Precision <i aria-hidden="true">&middot;</i></span>
+        <span><em>Intelligence</em> <i aria-hidden="true">&middot;</i></span>
+        <span>Momentum <i aria-hidden="true">&middot;</i></span>
+        <span>Rank up <i aria-hidden="true">&middot;</i></span>
+        <span>Precision <i aria-hidden="true">&middot;</i></span>
+        <span><em>Intelligence</em> <i aria-hidden="true">&middot;</i></span>
+        <span>Momentum <i aria-hidden="true">&middot;</i></span>
+        <span>Rank up <i aria-hidden="true">&middot;</i></span>
+      </div>
+    </section>
+
+    <!-- ============== FEATURES (CHAPTER 02) ============== -->
+    <section class="chapter features" id="features" data-testid="features" aria-label="Features section">
+      <div class="chapter__head">
+        <div class="chapter__num">02</div>
+        <div class="chapter__label">Features</div>
+        <div class="chapter__line"></div>
+      </div>
+
+      <div class="features__intro">
+        <h2 class="chapter__title">
+          <span class="line"><span class="line__inner">Every edge you need,</span></span>
+          <span class="line"><span class="line__inner">before the <em>next</em> circle.</span></span>
+        </h2>
+        <p class="chapter__lede">Six pillars, purpose-built for competitive PUBG Mobile players. Deeply analytical. Immediately actionable.</p>
+      </div>
+
+      <div class="features__grid">
+        <article class="feature" data-tilt data-testid="feature-ai">
+          <div class="feature__num">01</div>
+          <div class="feature__icon"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></div>
+          <h3>AI Screenshot Analyzer</h3>
+          <p>Drop a match end-screen. Our neural OCR extracts placement, damage, kills, survival and headshots with 98.7% accuracy in under 2 seconds.</p>
+          <a href="/signup" class="feature__link" rel="nofollow">Try it <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></a>
+        </article>
+
+        <article class="feature" data-tilt>
+          <div class="feature__num">02</div>
+          <div class="feature__icon"><i class="fa-solid fa-chart-column" aria-hidden="true"></i></div>
+          <h3>Match Analytics</h3>
+          <p>Per-match breakdowns with damage curves, engagement timelines and rotation efficiency. See the map through your data.</p>
+          <a href="#dashboard" class="feature__link">Explore <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></a>
+        </article>
+
+        <article class="feature feature--wide" data-tilt>
+          <div class="feature__num">03</div>
+          <div class="feature__icon"><i class="fa-solid fa-crosshairs" aria-hidden="true"></i></div>
+          <h3>Weapon Statistics</h3>
+          <p>Accuracy, DPS, range effectiveness and recoil control &mdash; for every gun in your loadout. Optimize your first pickup, not your last regret.</p>
+          <a href="#analytics" class="feature__link">See charts <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></a>
+        </article>
+
+        <article class="feature" data-tilt>
+          <div class="feature__num">04</div>
+          <div class="feature__icon"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></div>
+          <h3>Performance Tracking</h3>
+          <p>Rolling 20-match trends across KD, survival and finish rate. Know when you're peaking &mdash; and when to rest.</p>
+          <a href="#dashboard" class="feature__link">Track me <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></a>
+        </article>
+
+        <article class="feature" data-tilt>
+          <div class="feature__num">05</div>
+          <div class="feature__icon"><i class="fa-solid fa-users-gear" aria-hidden="true"></i></div>
+          <h3>Team Management</h3>
+          <p>Roster, roles, synergy scores and IGL callouts. Coaches get a full-team dashboard with export-ready match reports.</p>
+          <a href="#pricing" class="feature__link">For teams <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></a>
+        </article>
+
+        <article class="feature" data-tilt>
+          <div class="feature__num">06</div>
+          <div class="feature__icon"><i class="fa-solid fa-earth-asia" aria-hidden="true"></i></div>
+          <h3>Global Leaderboards</h3>
+          <p>Compete across regions, tiers and modes. Filter by device, sensitivity and playstyle to find your true rank.</p>
+          <a href="#" class="feature__link">Climb <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============== HOW IT WORKS (CHAPTER 03) ============== -->
+    <section class="chapter how" id="how" data-testid="how" aria-label="How it works section">
+      <div class="chapter__head">
+        <div class="chapter__num">03</div>
+        <div class="chapter__label">How it works</div>
+        <div class="chapter__line"></div>
+      </div>
+
+      <h2 class="chapter__title">
+        <span class="line"><span class="line__inner">From screenshot to</span></span>
+        <span class="line"><span class="line__inner"><em>signal</em> in five steps.</span></span>
+      </h2>
+
+      <ol class="timeline">
+        <li>
+          <b>01</b>
+          <div>
+            <h4>Upload screenshot</h4>
+            <p>Drag any PUBG match end-screen &mdash; mobile, tablet, emulator. Multiple screenshots supported.</p>
+          </div>
+          <i class="fa-solid fa-upload" aria-hidden="true"></i>
+        </li>
+        <li>
+          <b>02</b>
+          <div>
+            <h4>AI processing</h4>
+            <p>Our vision model isolates every HUD region and parses text with sub-pixel confidence.</p>
+          </div>
+          <i class="fa-solid fa-microchip" aria-hidden="true"></i>
+        </li>
+        <li>
+          <b>03</b>
+          <div>
+            <h4>Match detection</h4>
+            <p>Map, mode, squad size, placement and per-player stats are validated against 48M+ matches.</p>
+          </div>
+          <i class="fa-solid fa-satellite-dish" aria-hidden="true"></i>
+        </li>
+        <li>
+          <b>04</b>
+          <div>
+            <h4>Analytics engine</h4>
+            <p>Delta versus your baseline. Weapon meta. Rotation efficiency. Insights ready in seconds.</p>
+          </div>
+          <i class="fa-solid fa-brain" aria-hidden="true"></i>
+        </li>
+        <li>
+          <b>05</b>
+          <div>
+            <h4>Report generated</h4>
+            <p>Export a shareable PDF, sync to your team dashboard, or beam the numbers to your coach.</p>
+          </div>
+          <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============== DASHBOARD PREVIEW (CHAPTER 04) ============== -->
+    <section class="chapter dashboard" id="dashboard" data-testid="dashboard-preview" aria-label="Dashboard preview section">
+      <div class="chapter__head">
+        <div class="chapter__num">04</div>
+        <div class="chapter__label">Product</div>
+        <div class="chapter__line"></div>
+      </div>
+
+      <div class="dashboard__head">
+        <h2 class="chapter__title">
+          <span class="line"><span class="line__inner">A command center</span></span>
+          <span class="line"><span class="line__inner">for your <em>squad.</em></span></span>
+        </h2>
+        <p class="chapter__lede">One workspace. Every metric. Nothing hidden behind exports.</p>
+      </div>
+
+      <div class="dashboard__stage">
+        <div class="spotlight"></div>
+
+        <div class="dashboard__frame" data-testid="dashboard-frame">
+          <div class="mockup__bar">
+            <span></span><span></span><span></span>
+            <em>fragtrack.app / squad / phantom-legion</em>
+          </div>
+          <div class="dashboard__body">
+            <aside>
+              <div class="mockup__logo"><img src="/landing/assets/logo.png" alt="" aria-hidden="true" /></div>
+              <em class="pill">Squad &middot; Phantom Legion</em>
+              <ul>
+                <li class="active"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Overview</li>
+                <li><i class="fa-solid fa-crosshairs" aria-hidden="true"></i> Weapons</li>
+                <li><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i> Heatmaps</li>
+                <li><i class="fa-solid fa-users" aria-hidden="true"></i> Roster</li>
+                <li><i class="fa-solid fa-medal" aria-hidden="true"></i> Rank</li>
+                <li><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Reports</li>
+              </ul>
+              <div class="side-card">
+                <em>Coach mode</em>
+                <b>Live</b>
+              </div>
+            </aside>
+
+            <div class="dashboard__main">
+              <div class="dashboard__topline">
+                <h4>Season 26 &mdash; Overview</h4>
+                <div class="chips"><span>Erangel</span><span>Miramar</span><span class="on">Sanhok</span><span>Livik</span></div>
+              </div>
+
+              <div class="dashboard__cards">
+                <div class="d-card">
+                  <em>Squad KD</em>
+                  <b>4.12</b>
+                  <div class="spark"><svg viewBox="0 0 100 30" aria-hidden="true"><polyline points="0,20 12,22 22,14 34,18 46,12 58,14 70,6 82,10 100,4" fill="none" stroke="#22D3EE" stroke-width="2"/></svg></div>
+                </div>
+                <div class="d-card">
+                  <em>Win rate</em>
+                  <b>38.4<i>%</i></b>
+                  <div class="spark"><svg viewBox="0 0 100 30" aria-hidden="true"><polyline points="0,22 12,18 22,20 34,14 46,16 58,10 70,12 82,6 100,8" fill="none" stroke="#7C3AED" stroke-width="2"/></svg></div>
+                </div>
+                <div class="d-card">
+                  <em>Chicken dinners</em>
+                  <b>147</b>
+                  <div class="spark"><svg viewBox="0 0 100 30" aria-hidden="true"><polyline points="0,24 12,20 22,22 34,16 46,14 58,10 70,8 82,4 100,6" fill="none" stroke="#3B82F6" stroke-width="2"/></svg></div>
+                </div>
+                <div class="d-card">
+                  <em>Avg. damage</em>
+                  <b>1,847</b>
+                  <div class="spark"><svg viewBox="0 0 100 30" aria-hidden="true"><polyline points="0,18 12,14 22,20 34,12 46,16 58,8 70,10 82,4 100,2" fill="none" stroke="#EC4899" stroke-width="2"/></svg></div>
+                </div>
+              </div>
+
+              <div class="dashboard__row">
+                <div class="d-panel d-panel--chart">
+                  <div class="d-panel__head"><em>KD progression &middot; last 30 matches</em><span class="on">+22.4%</span></div>
+                  <svg viewBox="0 0 460 160" preserveAspectRatio="none" class="d-chart chart-interactive" aria-label="KD progression chart" role="img">
+                    <defs>
+                      <linearGradient id="a1" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#22D3EE" stop-opacity=".45"/><stop offset="1" stop-color="#22D3EE" stop-opacity="0"/></linearGradient>
+                      <linearGradient id="s1" x1="0" x2="1"><stop offset="0" stop-color="#3B82F6"/><stop offset=".5" stop-color="#7C3AED"/><stop offset="1" stop-color="#22D3EE"/></linearGradient>
+                    </defs>
+                    <path d="M0,120 L30,110 L60,116 L90,88 L120,96 L150,70 L180,80 L210,58 L240,66 L270,44 L300,52 L330,32 L360,40 L390,22 L420,28 L460,10 L460,160 L0,160 Z" fill="url(#a1)"/>
+                    <path d="M0,120 L30,110 L60,116 L90,88 L120,96 L150,70 L180,80 L210,58 L240,66 L270,44 L300,52 L330,32 L360,40 L390,22 L420,28 L460,10" fill="none" stroke="url(#s1)" stroke-width="2.4" stroke-linecap="round"/>
+                  </svg>
+                  <div class="chart-tooltip" role="tooltip" aria-hidden="true"></div>
+                </div>
+
+                <div class="d-panel">
+                  <div class="d-panel__head"><em>Weapon accuracy</em><span>Top 6</span></div>
+                  <div class="d-rings">
+                    <div><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="26" stroke="rgba(255,255,255,.06)" stroke-width="5" fill="none"/><circle cx="30" cy="30" r="26" stroke="#22D3EE" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="46" transform="rotate(-90 30 30)"/></svg><em>M416</em><b>72%</b></div>
+                    <div><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="26" stroke="rgba(255,255,255,.06)" stroke-width="5" fill="none"/><circle cx="30" cy="30" r="26" stroke="#7C3AED" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="72" transform="rotate(-90 30 30)"/></svg><em>SCAR</em><b>56%</b></div>
+                    <div><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="26" stroke="rgba(255,255,255,.06)" stroke-width="5" fill="none"/><circle cx="30" cy="30" r="26" stroke="#3B82F6" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="34" transform="rotate(-90 30 30)"/></svg><em>Kar98</em><b>79%</b></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dashboard__row">
+                <div class="d-panel">
+                  <div class="d-panel__head"><em>Survival heatmap &middot; Erangel</em><span>Hot zones</span></div>
+                  <div class="heatmap" role="img" aria-label="Survival heatmap showing hot zones">
+                    <span style="--x:12%;--y:18%;--o:.35"></span>
+                    <span style="--x:24%;--y:44%;--o:.6"></span>
+                    <span style="--x:38%;--y:32%;--o:.9"></span>
+                    <span style="--x:54%;--y:62%;--o:.5"></span>
+                    <span style="--x:68%;--y:48%;--o:.85"></span>
+                    <span style="--x:78%;--y:22%;--o:.4"></span>
+                    <span style="--x:82%;--y:70%;--o:.7"></span>
+                    <span style="--x:44%;--y:78%;--o:.35"></span>
+                    <span style="--x:16%;--y:66%;--o:.5"></span>
+                  </div>
+                </div>
+
+                <div class="d-panel">
+                  <div class="d-panel__head"><em>Rank progression</em><span class="on">Conqueror</span></div>
+                  <div class="rank-bar">
+                    <div class="rank-bar__fill" style="width:86%"></div>
+                    <em>Ace Master &rarr; Conqueror</em>
+                  </div>
+                  <div class="d-mini">
+                    <div><i>Placement pts</i><b>+184</b></div>
+                    <div><i>Kill pts</i><b>+72</b></div>
+                    <div><i>Assist pts</i><b>+38</b></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating windows -->
+        <div class="floating-win floating-win--a" data-float="1">
+          <em>Alert</em>
+          <b>Headshot % up 12.4%</b>
+          <i>Last 10 matches</i>
+        </div>
+        <div class="floating-win floating-win--b" data-float="2">
+          <em>Coach note</em>
+          <b>"Push south rotation earlier &mdash; final circles favor high ground."</b>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== ANALYTICS SHOWCASE (CHAPTER 05) ============== -->
+    <section class="chapter analytics" id="analytics" data-testid="analytics" aria-label="Analytics section">
+      <div class="chapter__head">
+        <div class="chapter__num">05</div>
+        <div class="chapter__label">Analytics</div>
+        <div class="chapter__line"></div>
+      </div>
+
+      <h2 class="chapter__title">
+        <span class="line"><span class="line__inner">Charts you'll want</span></span>
+        <span class="line"><span class="line__inner">to <em>frame.</em></span></span>
+      </h2>
+
+      <div class="analytics__grid">
+        <div class="a-card a-card--big">
+          <div class="a-card__head"><em>KD ratio &middot; season</em><b>4.82</b></div>
+          <svg viewBox="0 0 400 180" preserveAspectRatio="none" class="chart-interactive" aria-label="KD ratio season chart" role="img">
+            <defs>
+              <linearGradient id="ag1" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#7C3AED" stop-opacity=".5"/><stop offset="1" stop-color="#7C3AED" stop-opacity="0"/></linearGradient>
+            </defs>
+            <path d="M0,140 L40,120 L80,130 L120,100 L160,110 L200,80 L240,88 L280,60 L320,68 L360,44 L400,30 L400,180 L0,180 Z" fill="url(#ag1)"/>
+            <path d="M0,140 L40,120 L80,130 L120,100 L160,110 L200,80 L240,88 L280,60 L320,68 L360,44 L400,30" fill="none" stroke="#22D3EE" stroke-width="2.4"/>
+          </svg>
+          <div class="chart-tooltip" role="tooltip" aria-hidden="true"></div>
+        </div>
+
+        <div class="a-card">
+          <div class="a-card__head"><em>Weapon accuracy</em></div>
+          <div class="a-bars">
+            <div data-value="72"><i style="height:72%"></i><em>M416</em></div>
+            <div data-value="56"><i style="height:56%"></i><em>SCAR</em></div>
+            <div data-value="79"><i style="height:79%"></i><em>Kar98</em></div>
+            <div data-value="44"><i style="height:44%"></i><em>UMP</em></div>
+            <div data-value="62"><i style="height:62%"></i><em>AKM</em></div>
+            <div data-value="38"><i style="height:38%"></i><em>DP-28</em></div>
+          </div>
+        </div>
+
+        <div class="a-card">
+          <div class="a-card__head"><em>Rank progress</em></div>
+          <div class="rank-bar rank-bar--tall"><div class="rank-bar__fill" style="width:74%"></div></div>
+          <div class="tiers"><span>Diamond</span><span>Crown</span><span>Ace</span><span class="on">Conqueror</span></div>
+        </div>
+
+        <div class="a-card">
+          <div class="a-card__head"><em>Survival heatmap</em></div>
+          <div class="heatmap heatmap--sm" role="img" aria-label="Survival heatmap">
+            <span style="--x:18%;--y:24%;--o:.4"></span>
+            <span style="--x:36%;--y:42%;--o:.7"></span>
+            <span style="--x:56%;--y:34%;--o:.9"></span>
+            <span style="--x:72%;--y:60%;--o:.55"></span>
+            <span style="--x:44%;--y:72%;--o:.7"></span>
+          </div>
+        </div>
+
+        <div class="a-card a-card--big">
+          <div class="a-card__head"><em>Damage &middot; last 20 matches</em><b>+18.2%</b></div>
+          <div class="a-bars a-bars--wide">
+            <div data-value="34"><i style="height:34%"></i></div>
+            <div data-value="58"><i style="height:58%"></i></div>
+            <div data-value="46"><i style="height:46%"></i></div>
+            <div data-value="72"><i style="height:72%"></i></div>
+            <div data-value="60"><i style="height:60%"></i></div>
+            <div data-value="82"><i style="height:82%"></i></div>
+            <div data-value="66"><i style="height:66%"></i></div>
+            <div data-value="90"><i style="height:90%"></i></div>
+            <div data-value="74"><i style="height:74%"></i></div>
+            <div data-value="96"><i style="height:96%"></i></div>
+            <div data-value="82"><i style="height:82%"></i></div>
+            <div data-value="70"><i style="height:70%"></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== AI INTELLIGENCE (CHAPTER 06) ============== -->
+    <section class="chapter ai" id="ai" data-testid="ai" aria-label="AI Intelligence section">
+      <div class="chapter__head">
+        <div class="chapter__num">06</div>
+        <div class="chapter__label">AI Intelligence</div>
+        <div class="chapter__line"></div>
+      </div>
+
+      <div class="ai__head">
+        <h2 class="chapter__title">
+          <span class="line"><span class="line__inner">One screenshot.</span></span>
+          <span class="line"><span class="line__inner"><em>Every</em> insight.</span></span>
+        </h2>
+        <p class="chapter__lede">Behind FragTrack: a vision model trained on 48M+ PUBG Mobile HUD frames, hardened for every device, resolution and language.</p>
+      </div>
+
+      <div class="ai__grid">
+        <div class="ai-card">
+          <div class="ai-card__num">A</div>
+          <h4>Vision OCR</h4>
+          <p>Region-aware neural OCR isolates the HUD, extracts placement, KD, damage and survival with sub-pixel confidence.</p>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card__num">B</div>
+          <h4>Match validation</h4>
+          <p>Cross-references your screenshot against a 48M-match database to detect anomalies, spoofing and edge cases.</p>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card__num">C</div>
+          <h4>Signal engine</h4>
+          <p>Turns raw numbers into narratives &mdash; momentum, fatigue, weapon fit &mdash; so you know what to change before the next drop.</p>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card__num">D</div>
+          <h4>Continuous learning</h4>
+          <p>Every uploaded match improves the model. Your data is anonymized, encrypted, and never resold.</p>
+        </div>
+      </div>
+
+      <div class="ai__diagram" role="img" aria-label="AI pipeline diagram: Screenshot to Neural Core to Insights">
+        <div class="node"><i class="fa-solid fa-image" aria-hidden="true"></i><em>Screenshot</em></div>
+        <div class="wire"></div>
+        <div class="node node--core"><i class="fa-solid fa-brain" aria-hidden="true"></i><em>Neural core</em></div>
+        <div class="wire"></div>
+        <div class="node"><i class="fa-solid fa-chart-line" aria-hidden="true"></i><em>Insights</em></div>
+      </div>
+    </section>
+
+    <!-- ============== PRICING (CHAPTER 07) ============== -->
+    <section class="chapter pricing" id="pricing" data-testid="pricing" aria-label="Pricing section">
+      <div class="chapter__head">
+        <div class="chapter__num">07</div>
+        <div class="chapter__label">Pricing</div>
+        <div class="chapter__line"></div>
+      </div>
+
+      <div class="pricing__head">
+        <h2 class="chapter__title">
+          <span class="line"><span class="line__inner">Simple pricing.</span></span>
+          <span class="line"><span class="line__inner"><em>Serious</em> firepower.</span></span>
+        </h2>
+      </div>
+
+      <div class="pricing__grid">
+        <article class="price">
+          <em class="price__tier">Free</em>
+          <div class="price__amt"><b>$0</b><i>/mo</i></div>
+          <p class="price__lede">For casual squads getting started with data.</p>
+          <ul>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> 10 screenshot analyses / mo</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Personal dashboard</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Basic weapon stats</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Community leaderboards</li>
+          </ul>
+          <a href="/signup" class="btn btn--ghost btn--full" data-testid="pricing-free" rel="nofollow">Start free</a>
+        </article>
+
+        <article class="price price--featured">
+          <em class="price__flag">Most popular</em>
+          <em class="price__tier">Pro</em>
+          <div class="price__amt"><b>$19</b><i>/mo</i></div>
+          <p class="price__lede">For competitive players chasing Conqueror.</p>
+          <ul>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Unlimited screenshot analyses</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Advanced heatmaps &amp; trends</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Weapon meta insights</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Export PDF match reports</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Priority AI queue</li>
+          </ul>
+          <a href="/signup" class="btn btn--primary btn--full btn--shine" data-testid="pricing-pro" rel="nofollow">Go Pro</a>
+        </article>
+
+        <article class="price">
+          <em class="price__tier">Team</em>
+          <div class="price__amt"><b>$49</b><i>/mo</i></div>
+          <p class="price__lede">For rosters, coaches and org performance staff.</p>
+          <ul>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Up to 8 seats</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Coach mode &amp; callouts</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Team synergy scores</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> White-label reports</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Dedicated support</li>
+          </ul>
+          <a href="/signup" class="btn btn--ghost btn--full" data-testid="pricing-team" rel="nofollow">Contact sales</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============== TESTIMONIALS ============== -->
+    <section class="chapter testimonials" id="testimonials" data-testid="testimonials" aria-label="Testimonials section">
+      <div class="chapter__head">
+        <div class="chapter__num">08</div>
+        <div class="chapter__label">Testimonials</div>
+        <div class="chapter__line"></div>
+      </div>
+
+      <h2 class="chapter__title">
+        <span class="line"><span class="line__inner">Loved by pros,</span></span>
+        <span class="line"><span class="line__inner">trusted by <em>coaches.</em></span></span>
+      </h2>
+
+      <div class="tslider">
+        <div class="tslider__track" id="tslider-track" role="list" aria-label="Customer testimonials">
+          <article class="tcard" role="listitem">
+            <p>"FragTrack made my scrim reviews 10x faster. I upload three screenshots, the whole roster's data is on the board. It's unreal."</p>
+            <footer>
+              <span class="avatar" style="background:linear-gradient(135deg,#7C3AED,#22D3EE)" aria-hidden="true">RK</span>
+              <div><b>Rahul "Ronak" Khatri</b><em>IGL &middot; Team GodLike</em></div>
+            </footer>
+          </article>
+          <article class="tcard" role="listitem">
+            <p>"The heatmaps changed how we drop. We stopped losing 4v4s in Georgopol two weeks after we started using FragTrack."</p>
+            <footer>
+              <span class="avatar" style="background:linear-gradient(135deg,#3B82F6,#EC4899)" aria-hidden="true">MN</span>
+              <div><b>Mira Nakamura</b><em>Coach &middot; Tokyo Verdy Esports</em></div>
+            </footer>
+          </article>
+          <article class="tcard" role="listitem">
+            <p>"Best analytics tool in mobile esports. Period. My weapon accuracy jumped 14% in a month."</p>
+            <footer>
+              <span class="avatar" style="background:linear-gradient(135deg,#F59E0B,#7C3AED)" aria-hidden="true">SA</span>
+              <div><b>Saif Al-Rashid</b><em>Solo Conqueror &middot; MENA</em></div>
+            </footer>
+          </article>
+          <article class="tcard" role="listitem">
+            <p>"Our org saved 20 hours a week of manual VOD tagging. FragTrack pays for itself in the first tournament."</p>
+            <footer>
+              <span class="avatar" style="background:linear-gradient(135deg,#22D3EE,#7C3AED)" aria-hidden="true">LP</span>
+              <div><b>Leo Park</b><em>Performance Analyst &middot; Damwon Mobile</em></div>
+            </footer>
+          </article>
+          <article class="tcard" role="listitem">
+            <p>"The AI got my Kar98 headshot rate right on the first try. I stopped double-checking after week one."</p>
+            <footer>
+              <span class="avatar" style="background:linear-gradient(135deg,#EC4899,#3B82F6)" aria-hidden="true">AV</span>
+              <div><b>Ana Volkov</b><em>Streamer &middot; 480K subs</em></div>
+            </footer>
+          </article>
+        </div>
+
+        <div class="tslider__nav">
+          <button class="tprev" aria-label="Previous testimonial" data-testid="testimonials-prev"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+          <button class="tnext" aria-label="Next testimonial" data-testid="testimonials-next"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== FAQ ============== -->
+    <section class="chapter faq" id="faq" data-testid="faq" aria-label="Frequently asked questions">
+      <div class="chapter__head">
+        <div class="chapter__num">09</div>
+        <div class="chapter__label">FAQ</div>
+        <div class="chapter__line"></div>
+      </div>
+
+      <div class="faq__wrap">
+        <h2 class="chapter__title">
+          <span class="line"><span class="line__inner">Questions,</span></span>
+          <span class="line"><span class="line__inner">plainly <em>answered.</em></span></span>
+        </h2>
+
+        <ul class="accordion">
+          <li>
+            <button aria-expanded="false"><span>Which devices does FragTrack support?</span><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+            <div><p>Any device that runs PUBG Mobile &mdash; Android, iOS, iPad, tablets, and emulator screenshots. Resolution and language are auto-detected.</p></div>
+          </li>
+          <li>
+            <button aria-expanded="false"><span>How accurate is the AI screenshot reader?</span><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+            <div><p>Currently 98.7% across 48M+ processed matches. Every ambiguous frame is flagged and never silently guessed.</p></div>
+          </li>
+          <li>
+            <button aria-expanded="false"><span>Is my data private?</span><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+            <div><p>Yes. Screenshots are encrypted in transit and at rest, anonymized for model improvement, and never sold. You can delete your account and data anytime.</p></div>
+          </li>
+          <li>
+            <button aria-expanded="false"><span>Can I use FragTrack with my team?</span><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+            <div><p>Absolutely. The Team plan supports up to 8 seats with coach mode, synergy scores and white-label match reports.</p></div>
+          </li>
+          <li>
+            <button aria-expanded="false"><span>Do you support tournaments and scrims?</span><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+            <div><p>Yes &mdash; we power performance dashboards for multiple tier-1 orgs. Contact sales for tournament-level integrations.</p></div>
+          </li>
+          <li>
+            <button aria-expanded="false"><span>Is there a free tier?</span><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+            <div><p>Yes. Free forever with 10 analyses per month. Upgrade whenever you're ready.</p></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============== FINAL CTA ============== -->
+    <section class="cta" data-testid="final-cta" aria-label="Call to action">
+      <div class="cta__bg">
+        <div class="blob blob--cyan" aria-hidden="true"></div>
+        <div class="blob blob--purple" aria-hidden="true"></div>
+        <div class="grid-lines" aria-hidden="true"></div>
+      </div>
+      <h2>
+        <span class="line"><span class="line__inner">Start tracking your</span></span>
+        <span class="line"><span class="line__inner">PUBG performance <em>today.</em></span></span>
+      </h2>
+      <p>Free forever tier. 60-second setup. Cancel anytime.</p>
+      <div class="cta__buttons">
+        <a href="/signup" class="btn btn--primary btn--lg btn--shine" data-testid="final-cta-btn" rel="nofollow">
+          <span>Launch FragTrack</span>
+          <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+        </a>
+        <a href="#pricing" class="btn btn--ghost btn--lg">Compare plans</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="footer" data-testid="footer" role="contentinfo">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <img src="/landing/assets/logo.png" alt="FragTrack" width="120" height="26" />
+        <p>AI analytics for competitive PUBG Mobile &mdash; built by players, for players.</p>
+        <div class="socials">
+          <a href="#" aria-label="Follow FragTrack on X (Twitter)" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Join FragTrack Discord" rel="noopener noreferrer"><i class="fa-brands fa-discord" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Subscribe to FragTrack on YouTube" rel="noopener noreferrer"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Follow FragTrack on Instagram" rel="noopener noreferrer"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" aria-label="FragTrack on GitHub" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+        </div>
+        <div class="newsletter">
+          <h4>Stay in the <em>circle</em></h4>
+          <p>Get weekly PUBG Mobile strategy insights, patch analysis, and pro tips.</p>
+          <form class="newsletter__form" action="#" method="post" novalidate>
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input type="email" id="footer-email" name="email" placeholder="Enter your email" required autocomplete="email" />
+            <button type="submit" class="btn btn--primary" aria-label="Subscribe to newsletter"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer__cols">
+        <div>
+          <em>Product</em>
+          <a href="#features">Features</a>
+          <a href="#dashboard">Dashboard</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#ai">AI engine</a>
+        </div>
+        <div>
+          <em>Company</em>
+          <a href="#">About</a>
+          <a href="#">Careers</a>
+          <a href="#">Press</a>
+          <a href="#">Contact</a>
+        </div>
+        <div>
+          <em>Resources</em>
+          <a href="/blogs/">Blog</a>
+          <a href="#">Docs</a>
+          <a href="#">API</a>
+          <a href="#">Changelog</a>
+          <a href="#">Status</a>
+        </div>
+        <div>
+          <em>Legal</em>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Security</a>
+          <a href="#">DPA</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__giant" aria-hidden="true">FRAGTRACK</div>
+
+    <div class="footer__bottom">
+      <span>&copy; 2026 FragTrack Labs. All rights reserved.</span>
+      <span><i class="fa-solid fa-circle" style="color:#22c55e;font-size:8px" aria-hidden="true"></i> All systems normal</span>
+    </div>
+  </footer>
+
+  <!-- Libs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
