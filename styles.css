@@ -748,7 +748,7 @@ input:focus-visible,
 }
 @media (max-width:820px){
   .nav__links{display:none}
-  .nav__cta .btn--ghost{display:none}
+  .nav__cta{display:none}
   .nav__burger{display:flex}
   .dashboard__body{grid-template-columns:1fr}
   .dashboard__frame aside{border-right:0;border-bottom:1px solid var(--line);flex-direction:row;overflow-x:auto}
@@ -801,6 +801,4 @@ input:focus-visible,
   .hero__right{height:360px}
   .hero__proof{flex-direction:column;align-items:flex-start}
   .chips{flex-wrap:wrap}
-  .nav__cta .btn--primary{padding:10px 14px;font-size:13px}
 }
-

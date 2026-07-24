@@ -724,12 +724,22 @@
 
 @media (max-width: 820px) {
   .blog-nav__links { display: none; }
-  .blog-nav__cta .btn--ghost { display: none; }
+  .blog-nav__cta { display: none; }
   .blog-nav__burger { display: flex; }
   .blog-index__grid { grid-template-columns: 1fr; }
   .related-posts__grid { grid-template-columns: 1fr; }
   .blog-footer__cols { grid-template-columns: repeat(2, 1fr); }
   .blog-footer__top { grid-template-columns: 1fr; }
+  .related-posts { padding-top: 48px; }
+}
+
+/* Prevent the fixed nav from covering anchor-linked sections
+   (TOC links, related posts, headings) when the page jumps to them */
+.blog-content h2,
+.blog-content h3,
+.related-posts,
+.blog-toc {
+  scroll-margin-top: 96px;
 }
 
 @media (max-width: 520px) {
