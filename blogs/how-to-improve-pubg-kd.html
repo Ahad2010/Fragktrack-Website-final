@@ -109,44 +109,49 @@
 </head>
 <body>
 
-  <header class="blog-nav" id="blog-nav">
-    <a href="/" class="blog-nav__logo">
-      <img src="/logo.png" alt="FragTrack" />
+<header class="nav" id="nav" data-testid="nav-header" role="banner">
+    <a href="/" class="nav__logo" data-testid="nav-logo" aria-label="FragTrack home">
+      <img src="/logo.png" alt="FragTrack" width="98" height="22" />
     </a>
-    <nav class="blog-nav__links" aria-label="Primary">
-      <a href="/#features" class="blog-nav__link">Features</a>
-      <a href="/#how" class="blog-nav__link">How it Works</a>
-      <a href="/#dashboard" class="blog-nav__link">Product</a>
-      <a href="/#pricing" class="blog-nav__link">Pricing</a>
-      <a href="/#faq" class="blog-nav__link">FAQ</a>
-      <a href="/blogs/" class="blog-nav__link active">Blog</a>
+
+    <nav class="nav__links" aria-label="Primary navigation">
+      <a href="/#features" class="nav__link" data-testid="nav-link-features">Features</a>
+      <a href="/#how" class="nav__link" data-testid="nav-link-how">How it Works</a>
+      <a href="/#dashboard" class="nav__link" data-testid="nav-link-dashboard">Product</a>
+      <a href="/#faq" class="nav__link" data-testid="nav-link-faq">FAQ</a>
+      <a href="/about.html" class="nav__link" data-testid="nav-link-about">About</a>
+      <a href="/blogs/" class="nav__link active" data-testid="nav-link-blog">Blog</a>
+      <a href="/contact.html" class="nav__link" data-testid="nav-link-contact">Contact</a>
     </nav>
-    <div class="blog-nav__cta">
-      <a href="/signup" class="btn btn--ghost">Sign in</a>
-      <a href="/signup" class="btn btn--primary">
-        <span>Launch app</span>
-        <i class="fa-solid fa-arrow-right-long"></i>
+
+    <div class="nav__cta">
+      <a href="/signup" class="btn btn--ghost" data-testid="nav-signin" rel="nofollow">Sign in</a>
+      <a href="/signup" class="btn btn--primary" data-testid="nav-cta" rel="nofollow">
+        <span>Join now</span>
+        <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
       </a>
     </div>
-    <button class="blog-nav__burger" id="blog-burger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="blog-mobile-menu">
+
+    <button class="nav__burger" id="burger" aria-label="Toggle navigation menu" data-testid="nav-burger" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span>
     </button>
   </header>
 
-  <div class="blog-mobile-menu" id="blog-mobile-menu" role="navigation" aria-label="Mobile navigation" aria-hidden="true">
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation" aria-hidden="true">
     <a href="/#features" tabindex="-1">Features</a>
     <a href="/#how" tabindex="-1">How it Works</a>
     <a href="/#dashboard" tabindex="-1">Product</a>
-    <a href="/#pricing" tabindex="-1">Pricing</a>
     <a href="/#faq" tabindex="-1">FAQ</a>
+    <a href="/about.html" tabindex="-1">About</a>
     <a href="/blogs/" tabindex="-1">Blog</a>
-    <hr class="blog-mobile-menu__divider" />
-    <a href="/signup" class="blog-mobile-menu__auth" tabindex="-1">Register</a>
-    <a href="/signup" class="blog-mobile-menu__auth" tabindex="-1">Sign in</a>
-    <hr class="blog-mobile-menu__divider" />
-    <a href="/signup" class="btn btn--primary btn--lg" style="width:100%;justify-content:center" tabindex="-1">Launch app</a>
+    <a href="/contact.html" tabindex="-1">Contact</a>
+    <hr class="mobile-menu__divider" />
+    <div class="mobile-menu__auth-row">
+      <a href="/signup" class="btn btn--primary" tabindex="-1">Join now</a>
+      <a href="/signup" class="btn btn--ghost" tabindex="-1">Login</a>
+    </div>
   </div>
-
   <main>
     <section class="blog-hero">
       <div class="blog-hero__bg">
@@ -399,17 +404,17 @@
 
       document.body.classList.add('js-ready');
 
-      const nav = $('#blog-nav');
+            const nav = $('#nav');
       window.addEventListener('scroll', () => nav.classList.toggle('is-scrolled', window.scrollY > 30), { passive: true });
 
-      const burger = $('#blog-burger'), mm = $('#blog-mobile-menu');
+     const burger = $('#burger'), mm = $('#mobile-menu');
       if (burger && mm) {
         burger.addEventListener('click', () => {
           const isOpen = burger.classList.toggle('on');
           mm.classList.toggle('on');
           mm.setAttribute('aria-hidden', !isOpen);
           burger.setAttribute('aria-expanded', isOpen);
-          $$('#blog-mobile-menu a').forEach(a => a.setAttribute('tabindex', isOpen ? '0' : '-1'));
+          $$('#mobile-menu a').forEach(a => a.setAttribute('tabindex', isOpen ? '0' : '-1'));
         });
         $$('#blog-mobile-menu a').forEach(a => a.addEventListener('click', () => {
           burger.classList.remove('on');
