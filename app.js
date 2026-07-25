@@ -105,14 +105,27 @@
     return null;
   }).filter(Boolean);
 
-  const setActive = () => {
-    const y = window.scrollY + 120;
-    let idx = 0;
-    sections.forEach((s, i) => { if (s && s.offsetTop <= y) idx = i; });
-    links.forEach(l => l.classList.remove('active'));
-    if (links[idx]) links[idx].classList.add('active');
-  };
-  window.addEventListener('scroll', setActive, { passive: true });
+  if (sections.length) {
+    // Homepage: highlight nav link based on which section is in view
+    const setActive = () => {
+      const y = window.scrollY + 120;
+      let idx = 0;
+      sections.forEach((s, i) => { if (s && s.offsetTop <= y) idx = i; });
+      links.forEach(l => l.classList.remove('active'));
+      if (links[idx]) links[idx].classList.add('active');
+    };
+    window.addEventListener('scroll', setActive, { passive: true });
+    setActive();
+  } else {
+    // Subpage (about/contact/privacy/terms/blog): highlight the link matching the current URL
+    const path = window.location.pathname.replace(/\/index\.html$/, '/');
+    links.forEach(l => {
+      const href = l.getAttribute('href') || '';
+      const isMatch = href && !href.startsWith('#') && !href.startsWith('/index.html#') &&
+        (href === path || (href.endsWith('/') && path.startsWith(href)));
+      l.classList.toggle('active', !!isMatch);
+    });
+  }
 
   /* ============ BURGER MENU ============ */
   const burger = $('#burger');

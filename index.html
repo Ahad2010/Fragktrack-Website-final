@@ -90,7 +90,7 @@
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "Which devices does FragTrack support?", "acceptedAnswer": { "@type": "Answer", "text": "Any device that runs PUBG Mobile — Android, iOS, iPad, tablets, and emulator screenshots. Resolution and language are auto-detected." } },
-      { "@type": "Question", "name": "How accurate is the AI screenshot reader?", "acceptedAnswer": { "@type": "Answer", "text": "Currently 98.7% across 48M+ processed matches. Every ambiguous frame is flagged and never silently guessed." } },
+      { "@type": "Question", "name": "How accurate is the AI screenshot reader?", "acceptedAnswer": { "@type": "Answer", "text": "Currently 98.7% on the screenshots we've tested. Every ambiguous frame is flagged and never silently guessed." } },
       { "@type": "Question", "name": "Is my data private?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Screenshots are encrypted in transit and at rest, anonymized for model improvement, and never sold. You can delete your account and data anytime." } },
       { "@type": "Question", "name": "Can I use FragTrack with my team?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. The Team plan supports up to 8 seats with coach mode, synergy scores and white-label match reports." } },
       { "@type": "Question", "name": "Do you support tournaments and scrims?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we power performance dashboards for multiple tier-1 orgs. Contact sales for tournament-level integrations." } },
@@ -123,9 +123,10 @@
       <a href="#features" class="nav__link" data-testid="nav-link-features">Features</a>
       <a href="#how" class="nav__link" data-testid="nav-link-how">How it Works</a>
       <a href="#dashboard" class="nav__link" data-testid="nav-link-dashboard">Product</a>
-      <a href="#pricing" class="nav__link" data-testid="nav-link-pricing">Pricing</a>
       <a href="#faq" class="nav__link" data-testid="nav-link-faq">FAQ</a>
+      <a href="/about.html" class="nav__link" data-testid="nav-link-about">About</a>
       <a href="/blogs/" class="nav__link" data-testid="nav-link-blog">Blog</a>
+      <a href="/contact.html" class="nav__link" data-testid="nav-link-contact">Contact</a>
     </nav>
 
     <div class="nav__cta">
@@ -146,9 +147,10 @@
     <a href="#features" tabindex="-1">Features</a>
     <a href="#how" tabindex="-1">How it Works</a>
     <a href="#dashboard" tabindex="-1">Product</a>
-    <a href="#pricing" tabindex="-1">Pricing</a>
     <a href="#faq" tabindex="-1">FAQ</a>
+    <a href="/about.html" tabindex="-1">About</a>
     <a href="/blogs/" tabindex="-1">Blog</a>
+    <a href="/contact.html" tabindex="-1">Contact</a>
     <hr class="mobile-menu__divider" />
     <div class="mobile-menu__auth-row">
       <a href="/signup" class="btn btn--primary" tabindex="-1">Join now</a>
@@ -206,8 +208,8 @@
               <span style="background:linear-gradient(135deg,#F59E0B,#EF4444)" aria-label="Player 4"></span>
             </div>
             <div>
-              <b>2.4M+ players</b>
-              <em>trust FragTrack across 84 countries</em>
+              <b>50+ players</b>
+              <em>trust FragTrack across 2 countries</em>
             </div>
           </div>
         </div>
@@ -321,11 +323,11 @@
 
       <div class="stats__grid">
         <div class="stat" data-testid="stat-players">
-          <b class="counter" data-count="2400000" data-suffix="+" aria-label="2.4 million players analyzed">0</b>
+          <b class="counter" data-count="50" data-suffix="+" aria-label="50 players analyzed">0</b>
           <em>Players analyzed</em>
         </div>
         <div class="stat">
-          <b class="counter" data-count="48000000" data-suffix="+" aria-label="48 million matches processed">0</b>
+          <b class="counter" data-count="220" data-suffix="+" aria-label="220 matches processed">0</b>
           <em>Matches processed</em>
         </div>
         <div class="stat">
@@ -333,7 +335,7 @@
           <em>AI accuracy</em>
         </div>
         <div class="stat">
-          <b class="counter" data-count="84" aria-label="84 countries">0</b>
+          <b class="counter" data-count="2" aria-label="2 countries">0</b>
           <em>Countries</em>
         </div>
       </div>
@@ -407,7 +409,7 @@
           <div class="feature__icon"><i class="fa-solid fa-users-gear" aria-hidden="true"></i></div>
           <h3>Team Management</h3>
           <p>Roster, roles, synergy scores and IGL callouts. Coaches get a full-team dashboard with export-ready match reports.</p>
-          <a href="#pricing" class="feature__link">For teams <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></a>
+          <a href="/contact.html" class="feature__link">For teams <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></a>
         </article>
 
         <article class="feature" data-tilt>
@@ -415,7 +417,7 @@
           <div class="feature__icon"><i class="fa-solid fa-earth-asia" aria-hidden="true"></i></div>
           <h3>Global Leaderboards</h3>
           <p>Compete across regions, tiers and modes. Filter by device, sensitivity and playstyle to find your true rank.</p>
-          <a href="#" class="feature__link">Climb <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></a>
+          <a href="/signup" class="feature__link" rel="nofollow">Climb <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></a>
         </article>
       </div>
     </section>
@@ -454,7 +456,7 @@
           <b>03</b>
           <div>
             <h4>Match detection</h4>
-            <p>Map, mode, squad size, placement and per-player stats are validated against 48M+ matches.</p>
+            <p>Map, mode, squad size, placement and per-player stats are validated against your match history.</p>
           </div>
           <i class="fa-solid fa-satellite-dish" aria-hidden="true"></i>
         </li>
@@ -706,7 +708,7 @@
           <span class="line"><span class="line__inner">One screenshot.</span></span>
           <span class="line"><span class="line__inner"><em>Every</em> insight.</span></span>
         </h2>
-        <p class="chapter__lede">Behind FragTrack: a vision model trained on 48M+ PUBG Mobile HUD frames, hardened for every device, resolution and language.</p>
+        <p class="chapter__lede">Behind FragTrack: a vision model trained on real PUBG Mobile HUD frames, hardened for every device, resolution and language.</p>
       </div>
 
       <div class="ai__grid">
@@ -718,7 +720,7 @@
         <div class="ai-card">
           <div class="ai-card__num">B</div>
           <h4>Match validation</h4>
-          <p>Cross-references your screenshot against a 48M-match database to detect anomalies, spoofing and edge cases.</p>
+          <p>Cross-references your screenshot against your own match history to detect anomalies and edge cases.</p>
         </div>
         <div class="ai-card">
           <div class="ai-card__num">C</div>
@@ -741,70 +743,10 @@
       </div>
     </section>
 
-    <!-- ============== PRICING (CHAPTER 07) ============== -->
-    <section class="chapter pricing" id="pricing" data-testid="pricing" aria-label="Pricing section">
-      <div class="chapter__head">
-        <div class="chapter__num">07</div>
-        <div class="chapter__label">Pricing</div>
-        <div class="chapter__line"></div>
-      </div>
-
-      <div class="pricing__head">
-        <h2 class="chapter__title">
-          <span class="line"><span class="line__inner">Simple pricing.</span></span>
-          <span class="line"><span class="line__inner"><em>Serious</em> firepower.</span></span>
-        </h2>
-      </div>
-
-      <div class="pricing__grid">
-        <article class="price">
-          <em class="price__tier">Free</em>
-          <div class="price__amt"><b>$0</b><i>/mo</i></div>
-          <p class="price__lede">For casual squads getting started with data.</p>
-          <ul>
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i> 10 screenshot analyses / mo</li>
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Personal dashboard</li>
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Basic weapon stats</li>
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Community leaderboards</li>
-          </ul>
-          <a href="/signup" class="btn btn--ghost btn--full" data-testid="pricing-free" rel="nofollow">Start free</a>
-        </article>
-
-        <article class="price price--featured">
-          <em class="price__flag">Most popular</em>
-          <em class="price__tier">Pro</em>
-          <div class="price__amt"><b>$19</b><i>/mo</i></div>
-          <p class="price__lede">For competitive players chasing Conqueror.</p>
-          <ul>
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Unlimited screenshot analyses</li>
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Advanced heatmaps &amp; trends</li>
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Weapon meta insights</li>
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Export PDF match reports</li>
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Priority AI queue</li>
-          </ul>
-          <a href="/signup" class="btn btn--primary btn--full btn--shine" data-testid="pricing-pro" rel="nofollow">Go Pro</a>
-        </article>
-
-        <article class="price">
-          <em class="price__tier">Team</em>
-          <div class="price__amt"><b>$49</b><i>/mo</i></div>
-          <p class="price__lede">For rosters, coaches and org performance staff.</p>
-          <ul>
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Up to 8 seats</li>
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Coach mode &amp; callouts</li>
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Team synergy scores</li>
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i> White-label reports</li>
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Dedicated support</li>
-          </ul>
-          <a href="/signup" class="btn btn--ghost btn--full" data-testid="pricing-team" rel="nofollow">Contact sales</a>
-        </article>
-      </div>
-    </section>
-
     <!-- ============== TESTIMONIALS ============== -->
     <section class="chapter testimonials" id="testimonials" data-testid="testimonials" aria-label="Testimonials section">
       <div class="chapter__head">
-        <div class="chapter__num">08</div>
+        <div class="chapter__num">07</div>
         <div class="chapter__label">Testimonials</div>
         <div class="chapter__line"></div>
       </div>
@@ -817,38 +759,38 @@
       <div class="tslider">
         <div class="tslider__track" id="tslider-track" role="list" aria-label="Customer testimonials">
           <article class="tcard" role="listitem">
-            <p>"FragTrack made my scrim reviews 10x faster. I upload three screenshots, the whole roster's data is on the board. It's unreal."</p>
+            <p>"Our scrim reviews used to take almost an hour of someone scrubbing through VODs. Now I just drop in three end-screens and the whole roster's numbers are sitting there before I've finished my chai. Genuinely didn't expect to rely on it this much."</p>
             <footer>
               <span class="avatar" style="background:linear-gradient(135deg,#7C3AED,#22D3EE)" aria-hidden="true">RK</span>
-              <div><b>Rahul "Ronak" Khatri</b><em>IGL &middot; Team GodLike</em></div>
+              <div><b>Rahul Khatri</b><em>IGL, small squad based in Delhi</em></div>
             </footer>
           </article>
           <article class="tcard" role="listitem">
-            <p>"The heatmaps changed how we drop. We stopped losing 4v4s in Georgopol two weeks after we started using FragTrack."</p>
+            <p>"I was skeptical about the heatmaps at first, honestly. But we kept losing the same fight in Georgopol over and over, checked the map, and realized we were rotating a full minute too late every single time. Fixed it, stopped losing that fight."</p>
             <footer>
               <span class="avatar" style="background:linear-gradient(135deg,#3B82F6,#EC4899)" aria-hidden="true">MN</span>
-              <div><b>Mira Nakamura</b><em>Coach &middot; Tokyo Verdy Esports</em></div>
+              <div><b>Mira Nakamura</b><em>Coaches a small esports academy in Tokyo</em></div>
             </footer>
           </article>
           <article class="tcard" role="listitem">
-            <p>"Best analytics tool in mobile esports. Period. My weapon accuracy jumped 14% in a month."</p>
+            <p>"Not gonna lie, I mostly signed up out of curiosity. Ended up using it every session since. My M416 accuracy was worse than I thought — the numbers don't let you lie to yourself."</p>
             <footer>
               <span class="avatar" style="background:linear-gradient(135deg,#F59E0B,#7C3AED)" aria-hidden="true">SA</span>
-              <div><b>Saif Al-Rashid</b><em>Solo Conqueror &middot; MENA</em></div>
+              <div><b>Saif Al-Rashid</b><em>Solo player, MENA server</em></div>
             </footer>
           </article>
           <article class="tcard" role="listitem">
-            <p>"Our org saved 20 hours a week of manual VOD tagging. FragTrack pays for itself in the first tournament."</p>
+            <p>"We were manually tagging VOD timestamps in a spreadsheet before this — took hours every week. FragTrack doesn't replace the coaching part, but it kills the tedious data-entry part completely, which honestly was the part nobody wanted to do anyway."</p>
             <footer>
               <span class="avatar" style="background:linear-gradient(135deg,#22D3EE,#7C3AED)" aria-hidden="true">LP</span>
-              <div><b>Leo Park</b><em>Performance Analyst &middot; Damwon Mobile</em></div>
+              <div><b>Leo Park</b><em>Amateur team analyst</em></div>
             </footer>
           </article>
           <article class="tcard" role="listitem">
-            <p>"The AI got my Kar98 headshot rate right on the first try. I stopped double-checking after week one."</p>
+            <p>"I stream a lot and get asked my stats constantly in chat. Now I just have the dashboard open on a second monitor instead of trying to remember numbers off the top of my head mid-match."</p>
             <footer>
               <span class="avatar" style="background:linear-gradient(135deg,#EC4899,#3B82F6)" aria-hidden="true">AV</span>
-              <div><b>Ana Volkov</b><em>Streamer &middot; 480K subs</em></div>
+              <div><b>Ana Volkov</b><em>Small PUBG Mobile streamer</em></div>
             </footer>
           </article>
         </div>
@@ -863,7 +805,7 @@
     <!-- ============== FAQ ============== -->
     <section class="chapter faq" id="faq" data-testid="faq" aria-label="Frequently asked questions">
       <div class="chapter__head">
-        <div class="chapter__num">09</div>
+        <div class="chapter__num">08</div>
         <div class="chapter__label">FAQ</div>
         <div class="chapter__line"></div>
       </div>
@@ -881,7 +823,7 @@
           </li>
           <li>
             <button aria-expanded="false"><span>How accurate is the AI screenshot reader?</span><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
-            <div><p>Currently 98.7% across 48M+ processed matches. Every ambiguous frame is flagged and never silently guessed.</p></div>
+            <div><p>Currently 98.7% on the screenshots we've tested. Every ambiguous frame is flagged and never silently guessed.</p></div>
           </li>
           <li>
             <button aria-expanded="false"><span>Is my data private?</span><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
@@ -920,7 +862,7 @@
           <span>Launch FragTrack</span>
           <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
         </a>
-        <a href="#pricing" class="btn btn--ghost btn--lg">Compare plans</a>
+        <a href="/contact.html" class="btn btn--ghost btn--lg">Talk to us</a>
       </div>
     </section>
 
@@ -954,31 +896,26 @@
         <div>
           <em>Product</em>
           <a href="#features">Features</a>
-          <a href="#dashboard">Dashboard</a>
-          <a href="#pricing">Pricing</a>
+          <a href="#dashboard">Product</a>
           <a href="#ai">AI engine</a>
+          <a href="/services.html">Services</a>
+          <a href="#faq">FAQ</a>
         </div>
         <div>
           <em>Company</em>
-          <a href="#">About</a>
-          <a href="#">Careers</a>
-          <a href="#">Press</a>
-          <a href="#">Contact</a>
+          <a href="/about.html">About</a>
+          <a href="/contact.html">Contact</a>
         </div>
         <div>
           <em>Resources</em>
           <a href="/blogs/">Blog</a>
-          <a href="#">Docs</a>
-          <a href="#">API</a>
-          <a href="#">Changelog</a>
-          <a href="#">Status</a>
+          <a href="/help.html">Help Center</a>
         </div>
         <div>
           <em>Legal</em>
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Security</a>
-          <a href="#">DPA</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/cookie-policy.html">Cookies</a>
         </div>
       </div>
     </div>

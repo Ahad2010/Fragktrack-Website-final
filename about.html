@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0B0B0F" />
+  <meta name="color-scheme" content="dark" />
+
+  <title>About FragTrack — The Team Behind PUBG Mobile Analytics</title>
+  <meta name="description" content="FragTrack started as a weekend project for tracking our own squad's PUBG Mobile stats. Here's the story, and how we think about building the product." />
+  <link rel="canonical" href="https://fragtrack.app/about.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="FragTrack Labs" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fragtrack.app/about.html" />
+  <meta property="og:title" content="About FragTrack — The Team Behind PUBG Mobile Analytics" />
+  <meta property="og:description" content="FragTrack started as a weekend project for tracking our own squad's PUBG Mobile stats. Here's the story, and how we think about building the product." />
+  <meta property="og:image" content="https://fragtrack.app/og-image.jpg" />
+  <meta property="og:site_name" content="FragTrack" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About FragTrack — The Team Behind PUBG Mobile Analytics" />
+  <meta name="twitter:description" content="FragTrack started as a weekend project for tracking our own squad's PUBG Mobile stats. Here's the story, and how we think about building the product." />
+  <meta name="twitter:image" content="https://fragtrack.app/og-image.jpg" />
+  <meta name="twitter:site" content="@fragtrack" />
+
+  <link rel="icon" type="image/png" href="" />
+  <link rel="apple-touch-icon" href="/logo.png" />
+
+  <link rel="preload" as="image" href="/logo.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com 'unsafe-inline'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https:; connect-src 'self' https:; frame-src 'none'; object-src 'none'" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "FragTrack Labs",
+    "url": "https://fragtrack.app",
+    "logo": "https://fragtrack.app/logo.png",
+    "description": "AI-powered analytics platform for PUBG Mobile performance tracking.",
+    "sameAs": [
+      "https://x.com/fragtrack",
+      "https://discord.gg/fragtrack",
+      "https://youtube.com/@fragtrack",
+      "https://instagram.com/fragtrack"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- Skip to content -->
+  <a href="#main" class="skip-link" tabindex="0">Skip to main content</a>
+
+  <!-- ============== CUSTOM CURSOR ============== -->
+  <div class="cursor" id="cursor" aria-hidden="true" role="presentation">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"></div>
+  </div>
+
+  <!-- ============== SCROLL PROGRESS ============== -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true" role="presentation"><span></span></div>
+
+  <!-- ============== NAV ============== -->
+  <header class="nav" id="nav" data-testid="nav-header" role="banner">
+    <a href="/" class="nav__logo" data-testid="nav-logo" aria-label="FragTrack home">
+      <img src="/logo.png" alt="FragTrack" width="98" height="22" />
+    </a>
+
+    <nav class="nav__links" aria-label="Primary navigation">
+      <a href="/index.html#features" class="nav__link" data-testid="nav-link-features">Features</a>
+      <a href="/index.html#how" class="nav__link" data-testid="nav-link-how">How it Works</a>
+      <a href="/index.html#dashboard" class="nav__link" data-testid="nav-link-dashboard">Product</a>
+      <a href="/index.html#faq" class="nav__link" data-testid="nav-link-faq">FAQ</a>
+      <a href="/about.html" class="nav__link" data-testid="nav-link-about">About</a>
+      <a href="/blogs/" class="nav__link" data-testid="nav-link-blog">Blog</a>
+      <a href="/contact.html" class="nav__link" data-testid="nav-link-contact">Contact</a>
+    </nav>
+
+    <div class="nav__cta">
+      <a href="/signup" class="btn btn--ghost" data-testid="nav-signin" rel="nofollow">Sign in</a>
+      <a href="/signup" class="btn btn--primary" data-testid="nav-cta" rel="nofollow">
+        <span>Join now</span>
+        <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <button class="nav__burger" id="burger" aria-label="Toggle navigation menu" data-testid="nav-burger" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="/index.html#features" tabindex="-1">Features</a>
+    <a href="/index.html#how" tabindex="-1">How it Works</a>
+    <a href="/index.html#dashboard" tabindex="-1">Product</a>
+    <a href="/index.html#faq" tabindex="-1">FAQ</a>
+    <a href="/about.html" tabindex="-1">About</a>
+    <a href="/blogs/" tabindex="-1">Blog</a>
+    <a href="/contact.html" tabindex="-1">Contact</a>
+    <hr class="mobile-menu__divider" />
+    <div class="mobile-menu__auth-row">
+      <a href="/signup" class="btn btn--primary" tabindex="-1">Join now</a>
+      <a href="/signup" class="btn btn--ghost" tabindex="-1">Login</a>
+    </div>
+  </div>
+
+  <main id="main">
+  <!-- ============== PAGE HERO ============== -->
+  <section class="page-hero" aria-label="About FragTrack">
+    <div class="hero__bg">
+      <div class="blob blob--purple" aria-hidden="true" style="opacity:.5"></div>
+      <div class="blob blob--blue" aria-hidden="true" style="opacity:.4"></div>
+      <div class="grid-lines" aria-hidden="true"></div>
+    </div>
+    <div class="chapter__label"><span>About</span><div class="chapter__line"></div></div>
+    <h1>Built by players who were <em>tired of guessing.</em></h1>
+    <p>FragTrack started as a weekend script for reading our own squad's match screenshots. It's still early — a small but growing group of players use it today — but the reason for building it hasn't changed.</p>
+  </section>
+
+  <div class="prose">
+    <h2>Where this came from</h2>
+    <p>A few seasons back, a handful of us were grinding ranked PUBG Mobile together most evenings, and every post-match conversation went the same way: someone would squint at a screenshot on their phone, argue about whether the last fight was actually a good trade, and nobody could say for certain because none of us were tracking anything beyond our in-game rank. We'd win a match and still not know if our headshot rate had actually improved, or if we were just landing lucky shots.</p>
+    <p>So one of us wrote a small script to pull numbers off end-of-match screenshots automatically instead of typing them into a spreadsheet by hand. It was rough — it broke on half the phone resolutions we tried it on — but it worked often enough that we kept using it every night. Other squads we scrimmed against asked to try it. That script is, more or less, the thing that grew into FragTrack.</p>
+
+    <h2>What we're actually building</h2>
+    <p>FragTrack reads a PUBG Mobile match screenshot and turns it into numbers you can actually use: damage per match, weapon accuracy, survival time, rank point movement, and how all of that trends over your last twenty games instead of just one. Nothing here requires linking your game account or installing anything on your phone — you upload a screenshot, the model reads it, and you get a dashboard.</p>
+    <p>We're not trying to be a full esports management suite or a social network for gamers. The scope is intentionally narrow: read the screenshot correctly, show the trend honestly, and stay out of your way otherwise.</p>
+
+    <h2>How we think about the product</h2>
+    <div class="about-values">
+      <div>
+        <i class="fa-solid fa-crosshairs" aria-hidden="true"></i>
+        <h4>Accuracy over polish</h4>
+        <p>An analytics tool that reads your stats wrong is worse than no tool at all. When our OCR isn't confident about a number, we flag it instead of guessing — even if that makes the dashboard look less finished.</p>
+      </div>
+      <div>
+        <i class="fa-solid fa-lock" aria-hidden="true"></i>
+        <h4>Your screenshots stay yours</h4>
+        <p>Match screenshots are encrypted and only ever used to generate your own stats, unless you explicitly opt in to help improve the model. We don't sell player data — there's more detail on this on our <a href="/privacy.html">privacy page</a>.</p>
+      </div>
+      <div>
+        <i class="fa-solid fa-comments" aria-hidden="true"></i>
+        <h4>We read what you send us</h4>
+        <p>Most of the changes we've shipped came directly from players messaging us about a broken chart or a missing weapon in the tier list. We're still small enough that this works.</p>
+      </div>
+    </div>
+
+    <h2>Where we are today</h2>
+    <p>FragTrack is still in its early days. Right now it's mostly solo ranked players and a couple of small squads using it to review their own matches — including the coach dashboard for scrim reviews. The team behind it is small too — this isn't run by a large studio, and we're deliberately keeping the product focused rather than chasing every feature request that comes in before the core experience is solid.</p>
+    <p>If you want to see what the dashboard actually looks like, the <a href="/index.html#dashboard">product section</a> on our homepage walks through it, or you can just <a href="/signup">start tracking for free</a> and upload your last match.</p>
+
+    <h2>Questions or feedback?</h2>
+    <p>We'd genuinely like to hear from you, whether it's a bug report, a feature request, or just feedback on a chart that didn't make sense. Reach us through the <a href="/contact.html">contact page</a>.</p>
+  </div>
+
+  </main>
+
+  <footer class="footer" data-testid="footer" role="contentinfo">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <img src="/landing/assets/logo.png" alt="FragTrack" width="120" height="26" />
+        <p>AI analytics for competitive PUBG Mobile &mdash; built by players, for players.</p>
+        <div class="socials">
+          <a href="#" aria-label="Follow FragTrack on X (Twitter)" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Join FragTrack Discord" rel="noopener noreferrer"><i class="fa-brands fa-discord" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Subscribe to FragTrack on YouTube" rel="noopener noreferrer"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Follow FragTrack on Instagram" rel="noopener noreferrer"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" aria-label="FragTrack on GitHub" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+        </div>
+        <div class="newsletter">
+          <h4>Stay in the <em>circle</em></h4>
+          <p>Get weekly PUBG Mobile strategy insights, patch analysis, and pro tips.</p>
+          <form class="newsletter__form" action="#" method="post" novalidate>
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input type="email" id="footer-email" name="email" placeholder="Enter your email" required autocomplete="email" />
+            <button type="submit" class="btn btn--primary" aria-label="Subscribe to newsletter"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer__cols">
+        <div>
+          <em>Product</em>
+          <a href="/index.html#features">Features</a>
+          <a href="/index.html#dashboard">Product</a>
+          <a href="/index.html#ai">AI engine</a>
+          <a href="/services.html">Services</a>
+          <a href="/index.html#faq">FAQ</a>
+        </div>
+        <div>
+          <em>Company</em>
+          <a href="/about.html">About</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+        <div>
+          <em>Resources</em>
+          <a href="/blogs/">Blog</a>
+          <a href="/help.html">Help Center</a>
+        </div>
+        <div>
+          <em>Legal</em>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/cookie-policy.html">Cookies</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__giant" aria-hidden="true">FRAGTRACK</div>
+
+    <div class="footer__bottom">
+      <span>&copy; 2026 FragTrack Labs. All rights reserved.</span>
+      <span><i class="fa-solid fa-circle" style="color:#22c55e;font-size:8px" aria-hidden="true"></i> All systems normal</span>
+    </div>
+  </footer>
+
+  <!-- Libs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
