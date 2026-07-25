@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="stylesheet" href=" /styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/blogs/blog.css" />
 
   <script type="application/ld+json">
@@ -50,9 +50,10 @@
       <a href="/#features" class="blog-nav__link">Features</a>
       <a href="/#how" class="blog-nav__link">How it Works</a>
       <a href="/#dashboard" class="blog-nav__link">Product</a>
-      <a href="/#pricing" class="blog-nav__link">Pricing</a>
       <a href="/#faq" class="blog-nav__link">FAQ</a>
+      <a href="/about.html" class="blog-nav__link">About</a>
       <a href="/blogs/" class="blog-nav__link active">Blog</a>
+      <a href="/contact.html" class="blog-nav__link">Contact</a>
     </nav>
     <div class="blog-nav__cta">
       <a href="/signup" class="btn btn--ghost">Sign in</a>
@@ -70,9 +71,10 @@
     <a href="/#features">Features</a>
     <a href="/#how">How it Works</a>
     <a href="/#dashboard">Product</a>
-    <a href="/#pricing">Pricing</a>
     <a href="/#faq">FAQ</a>
+    <a href="/about.html">About</a>
     <a href="/blogs/">Blog</a>
+    <a href="/contact.html">Contact</a>
     <a href="/signup" class="btn btn--primary" style="width:100%;justify-content:center">Launch app</a>
   </div>
 
@@ -166,6 +168,48 @@
         <p>Deep dive into FragTrack's AI architecture: vision models, signal processing, continuous learning, and what's coming next.</p>
         <a href="/blogs/fragtrack-ai-explained.html">Read guide <i class="fa-solid fa-arrow-right-long"></i></a>
       </article>
+
+      <article class="blog-card">
+        <div class="blog-card__meta"><span>Loot</span><span>7 min read</span></div>
+        <h3>PUBG Mobile Loot Guide: Best Items &amp; Priorities</h3>
+        <p>A tier-based breakdown of what's actually worth grabbing — weapons, attachments, and healing items — early to late game.</p>
+        <a href="/blogs/pubg-mobile-loot-guide.html">Read guide <i class="fa-solid fa-arrow-right-long"></i></a>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card__meta"><span>Stats</span><span>7 min read</span></div>
+        <h3>How to Read Your PUBG Mobile Match Stats</h3>
+        <p>What your KD ratio, average damage, and survival time actually mean — and how to track them properly over time.</p>
+        <a href="/blogs/pubg-mobile-match-stats-explained.html">Read guide <i class="fa-solid fa-arrow-right-long"></i></a>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card__meta"><span>Strategy</span><span>7 min read</span></div>
+        <h3>PUBG Mobile Rotation Guide</h3>
+        <p>Zone timing, high ground, and positioning strategy for consistent late-game placements instead of panicked sprints.</p>
+        <a href="/blogs/pubg-mobile-rotation-guide.html">Read guide <i class="fa-solid fa-arrow-right-long"></i></a>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card__meta"><span>Playstyle</span><span>7 min read</span></div>
+        <h3>Solo vs Squad: Adjusting Your Playstyle</h3>
+        <p>How your looting, positioning, and fight decisions should change between solo queue and squad matches.</p>
+        <a href="/blogs/pubg-mobile-solo-vs-squad.html">Read guide <i class="fa-solid fa-arrow-right-long"></i></a>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card__meta"><span>Settings</span><span>7 min read</span></div>
+        <h3>PUBG Mobile Recoil Control Guide</h3>
+        <p>Gyroscope aim, the right attachments, and gun-specific spray patterns for the M416, AKM, and more.</p>
+        <a href="/blogs/pubg-mobile-recoil-control.html">Read guide <i class="fa-solid fa-arrow-right-long"></i></a>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card__meta"><span>Esports</span><span>8 min read</span></div>
+        <h3>Tracking Tournament ROI in PUBG Mobile</h3>
+        <p>A player's guide to tracking entry fees against prize money — and whether paid tournaments are actually worth it.</p>
+        <a href="/blogs/pubg-tournament-roi-tracking.html">Read guide <i class="fa-solid fa-arrow-right-long"></i></a>
+      </article>
     </div>
 
     <section class="blog-cta">
@@ -198,9 +242,9 @@
         <div>
           <em>Product</em>
           <a href="/#features">Features</a>
-          <a href="/#dashboard">Dashboard</a>
-          <a href="/#pricing">Pricing</a>
+          <a href="/#dashboard">Product</a>
           <a href="/#ai">AI engine</a>
+          <a href="/services.html">Services</a>
         </div>
         <div>
           <em>Blog</em>
@@ -211,17 +255,15 @@
         </div>
         <div>
           <em>Resources</em>
-          <a href="#">Docs</a>
-          <a href="#">API</a>
-          <a href="#">Changelog</a>
-          <a href="#">Status</a>
+          <a href="/about.html">About</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/help.html">Help Center</a>
         </div>
         <div>
           <em>Legal</em>
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Security</a>
-          <a href="#">DPA</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/cookie-policy.html">Cookies</a>
         </div>
       </div>
     </div>
@@ -239,16 +281,13 @@
       const $ = (s, r) => (r || document).querySelector(s);
       const $$ = (s, r) => [...(r || document).querySelectorAll(s)];
 
-      // Nav scroll
       const nav = $('#blog-nav');
       window.addEventListener('scroll', () => nav.classList.toggle('is-scrolled', window.scrollY > 30), { passive: true });
 
-      // Burger
       const burger = $('#blog-burger'), mm = $('#blog-mobile-menu');
       burger.addEventListener('click', () => { burger.classList.toggle('on'); mm.classList.toggle('on'); });
       $$('#blog-mobile-menu a').forEach(a => a.addEventListener('click', () => { burger.classList.remove('on'); mm.classList.remove('on'); }));
 
-      // Reveals
       if (window.gsap && window.ScrollTrigger) {
         gsap.registerPlugin(ScrollTrigger);
         $$('.line__inner').forEach(el => {

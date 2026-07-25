@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0B0B0F" />
+  <title>How to Read Your PUBG Mobile Match Stats — KD, Damage & More</title>
+  <meta name="description" content="What your PUBG Mobile KD ratio, average damage, and survival time actually mean, and how to track them properly instead of guessing at your own form." />
+  <meta name="keywords" content="PUBG Mobile match stats explained, PUBG Mobile KD ratio meaning, PUBG Mobile damage per match, PUBG stats tracker, understanding PUBG stats, FragTrack" />
+  <link rel="canonical" href="https://fragtrack.app/blogs/pubg-mobile-match-stats-explained.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://fragtrack.app/blogs/pubg-mobile-match-stats-explained.html" />
+  <meta property="og:title" content="How to Read Your PUBG Mobile Match Stats — KD, Damage & More" />
+  <meta property="og:description" content="What your PUBG Mobile KD ratio, average damage, and survival time actually mean, and how to track them properly instead of guessing at your own form." />
+  <meta property="og:image" content="https://fragtrack.app/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How to Read Your PUBG Mobile Match Stats — KD, Damage & More" />
+  <meta name="twitter:description" content="What your PUBG Mobile KD ratio, average damage, and survival time actually mean, and how to track them properly instead of guessing at your own form." />
+  <meta name="twitter:image" content="https://fragtrack.app/og-image.jpg" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="apple-touch-icon" href="/logo.png" />
+  <meta name="author" content="FragTrack Labs" />
+  <meta name="twitter:site" content="@fragtrack" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com 'unsafe-inline'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https:; connect-src 'self' https:; frame-src 'none'; object-src 'none'" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/blogs/blog.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Read Your PUBG Mobile Match Stats (And What They Actually Mean)",
+    "description": "What your PUBG Mobile KD ratio, average damage, and survival time actually mean, and how to track them properly instead of guessing at your own form.",
+    "image": "https://fragtrack.app/og-image.jpg",
+    "author": { "@type": "Organization", "name": "FragTrack Labs" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "FragTrack Labs",
+      "logo": { "@type": "ImageObject", "url": "https://fragtrack.app/logo.png" }
+    },
+    "datePublished": "2026-07-25",
+    "dateModified": "2026-07-25",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://fragtrack.app/blogs/pubg-mobile-match-stats-explained.html" }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="blog-nav" id="blog-nav">
+    <a href="/" class="blog-nav__logo">
+      <img src="/logo.png" alt="FragTrack" />
+    </a>
+    <nav class="blog-nav__links" aria-label="Primary">
+      <a href="/#features" class="blog-nav__link">Features</a>
+      <a href="/#how" class="blog-nav__link">How it Works</a>
+      <a href="/#dashboard" class="blog-nav__link">Product</a>
+      <a href="/#faq" class="blog-nav__link">FAQ</a>
+      <a href="/about.html" class="blog-nav__link">About</a>
+      <a href="/blogs/" class="blog-nav__link active">Blog</a>
+      <a href="/contact.html" class="blog-nav__link">Contact</a>
+    </nav>
+    <div class="blog-nav__cta">
+      <a href="/signup" class="btn btn--ghost">Sign in</a>
+      <a href="/signup" class="btn btn--primary">
+        <span>Launch app</span>
+        <i class="fa-solid fa-arrow-right-long"></i>
+      </a>
+    </div>
+    <button class="blog-nav__burger" id="blog-burger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="blog-mobile-menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <div class="blog-mobile-menu" id="blog-mobile-menu" role="navigation" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="/#features" tabindex="-1">Features</a>
+    <a href="/#how" tabindex="-1">How it Works</a>
+    <a href="/#dashboard" tabindex="-1">Product</a>
+    <a href="/#faq" tabindex="-1">FAQ</a>
+    <a href="/about.html" tabindex="-1">About</a>
+    <a href="/blogs/" tabindex="-1">Blog</a>
+    <a href="/contact.html" tabindex="-1">Contact</a>
+    <hr class="blog-mobile-menu__divider" />
+    <a href="/signup" class="blog-mobile-menu__auth" tabindex="-1">Register</a>
+    <a href="/signup" class="blog-mobile-menu__auth" tabindex="-1">Sign in</a>
+    <hr class="blog-mobile-menu__divider" />
+    <a href="/signup" class="btn btn--primary btn--lg" style="width:100%;justify-content:center" tabindex="-1">Launch app</a>
+  </div>
+
+  <main>
+    <section class="blog-hero">
+      <div class="blog-hero__bg">
+        <div class="blob blob--cyan"></div>
+        <div class="blob blob--purple"></div>
+        <div class="grid-lines"></div>
+        <div class="noise"></div>
+      </div>
+      <div class="blog-hero__content">
+        <div class="blog-hero__meta">
+          <span class="dot"></span>
+          <span>Stats</span>
+          <span class="author-avatar">FT</span>
+          <span>FragTrack Team</span>
+          <span>&middot;</span>
+          <span>July 25, 2026</span>
+          <span>&middot;</span>
+          <span>7 min read</span>
+        </div>
+        <h1 class="blog-hero__title">How to Read Your PUBG Mobile <em>Match Stats</em> (And What They Actually Mean)</h1>
+        <p class="blog-hero__excerpt">Your KD is 2.3. Is that good? Your average damage is 340. Is that good? Numbers without context are just numbers — here's how to actually read your own PUBG Mobile stats instead of just staring at them.</p>
+      </div>
+    </section>
+
+<div class="blog-content">
+      <div class="blog-featured-img">
+        <img src="/assets/images/blog/pubg-match-stats-hero.png" alt="PUBG Mobile stats dashboard showing KD ratio, damage, and win rate charts" class="img-placeholder" />
+      </div>
+
+      <div class="blog-toc">
+        <h3>Table of Contents</h3>
+        <ol>
+          <li><a href="#kd-ratio">K/D Ratio — <em>What</em> It Actually Tells You</a></li>
+          <li><a href="#damage">Average Damage — <em>The</em> Stat That Doesn't Lie</a></li>
+          <li><a href="#survival">Survival Time — <em>Context</em> Matters</a></li>
+          <li><a href="#win-rate">Win Rate — <em>Why</em> It's Overrated Alone</a></li>
+          <li><a href="#sample-size">Sample Size — <em>Why</em> One Match Means Nothing</a></li>
+          <li><a href="#tracking">Actually Tracking It Over Time</a></li>
+        </ol>
+      </div>
+
+      <h2 id="kd-ratio">K/D Ratio — <em>What</em> It Actually Tells You</h2>
+      <p>K/D ratio gets treated like a scoreboard, but on its own it barely tells you how you actually play. A 3.0 KD from someone who camps the edge of the zone all game and picks off exhausted survivors reads identically to a 3.0 KD from someone who fights through three squads mid-game. Same number, completely different playstyle.</p>
+      <p>Where K/D actually becomes useful is as a trend, not a snapshot. If your rolling KD across your last 20 matches is climbing, something in your decision-making is improving — better fight selection, better positioning, or both. If it's dropping while your damage per match stays flat, you're probably dying in fights you're already winning on damage, which usually points to positioning or third-party awareness rather than aim.</p>
+      <p>One quirk worth knowing: PUBG's squad results don't report per-player deaths directly. Most trackers, FragTrack included, use the same widely accepted convention — a #1 placement counts as no death for the match, any other placement counts as one. It's not a perfect substitute for a true individual death count, but it's consistent, and it's what basically every stat site is already using, so your numbers stay comparable.</p>
+
+      <h2 id="damage">Average Damage — <em>The</em> Stat That Doesn't Lie</h2>
+      <p>If you only track one number, make it average damage per match. Kills depend on your squad, on who gets the final shot, on luck. Damage doesn't care who finished the kill — it just reflects how much you actually fought. A player averaging 400+ damage a match with a modest KD is contributing heavily even if teammates are cleaning up the kills, and that's a genuinely useful thing to know about your own game, especially if you're the one initiating fights.</p>
+
+      <h2 id="survival">Survival Time — <em>Context</em> Matters</h2>
+      <p>Long survival time looks great until you realize it can mean two very different things: playing smart and rotating well, or hiding in a bush avoiding every fight until the game forces you into one. Read survival time alongside damage — high survival with low damage usually means passive play, while high survival with solid damage generally means you're actually contesting fights and surviving them, which is the combination worth aiming for.</p>
+
+      <h2 id="win-rate">Win Rate — <em>Why</em> It's Overrated Alone</h2>
+      <p>Win rate feels like the ultimate stat, but it's heavily dependent on squad quality, especially if you're playing with randoms. A strong individual player stuck with a weak squad can post a rough win rate despite playing every match well. It's worth tracking, just don't treat it as the single verdict on your skill — pair it with your personal damage and placement trends, which are far less dependent on who else is in your squad.</p>
+
+      <h2 id="sample-size">Sample Size — <em>Why</em> One Match Means Nothing</h2>
+      <p>A single incredible or terrible match tells you almost nothing about your actual skill level — it tells you what happened in one 25-minute window with a specific set of opponents, loot, and circle rotations. Judging your form off your last game is like judging a batting average off one at-bat. Look at rolling averages across at least 15-20 matches before drawing any real conclusion about whether you're improving, plateauing, or slipping.</p>
+
+      <h2 id="tracking">Actually Tracking It Over Time</h2>
+      <p>The honest reason most players never learn from their stats isn't a lack of interest — it's that manually logging kills and damage after every match gets tedious fast, and most people quit doing it within a week. This is the exact gap FragTrack's <a href="/services.html#4-stats-analyzer--screenshot-ai">Stats Analyzer</a> is built to close: upload your match result screenshot, and your K/D, damage, survival time, and placement get logged automatically into a rolling <a href="/services.html#3-performance-analysis">Performance</a> view, so the trend is sitting there whenever you want to check it instead of buried in old screenshots on your phone.</p>
+
+      <div class="blog-author">
+        <div class="blog-author__avatar">FT</div>
+        <div class="blog-author__info">
+          <b>FragTrack Team</b>
+          <em>Writing guides based on what actually shows up in match data — FragTrack Labs.</em>
+        </div>
+      </div>
+    </div>
+
+    <section class="related-posts">
+      <h2>Related <em>articles</em></h2>
+      <div class="related-posts__grid">
+        <div class="related-card">
+          <div class="related-card__meta"><span>Strategy</span><span>8 min read</span></div>
+          <h3>How to Improve PUBG KD Ratio</h3>
+          <p>Proven strategies to boost your Kill/Death ratio in PUBG Mobile.</p>
+          <a href="/blogs/how-to-improve-pubg-kd.html">Read guide <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+        <div class="related-card">
+          <div class="related-card__meta"><span>AI Tech</span><span>6 min read</span></div>
+          <h3>AI Screenshot Analysis for PUBG</h3>
+          <p>How FragTrack's neural OCR engine reads match screenshots with 98.7% accuracy.</p>
+          <a href="/blogs/ai-screenshot-analysis.html">Read guide <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+        <div class="related-card">
+          <div class="related-card__meta"><span>Esports</span><span>8 min read</span></div>
+          <h3>Tracking Tournament ROI</h3>
+          <p>A player's guide to tracking entry fees, prizes, and whether paid tournaments actually pay off.</p>
+          <a href="/blogs/pubg-tournament-roi-tracking.html">Read guide <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-cta">
+      <h2>Ready to <em>transform</em> your game?</h2>
+      <p>Upload your first match screenshot and get AI-powered insights in seconds.</p>
+      <div class="cta__buttons">
+        <a href="/signup" class="btn btn--primary btn--lg btn--shine">
+          <span>Start tracking free</span>
+          <i class="fa-solid fa-arrow-right-long"></i>
+        </a>
+        <a href="/blogs/" class="btn btn--ghost btn--lg">All articles</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="blog-footer">
+    <div class="blog-footer__top">
+      <div class="blog-footer__brand">
+        <img src="/logo.png" alt="FragTrack" />
+        <p>AI analytics for competitive PUBG Mobile &mdash; built by players, for players.</p>
+        <div class="socials">
+          <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+      <div class="blog-footer__cols">
+        <div>
+          <em>Product</em>
+          <a href="/#features">Features</a>
+          <a href="/#dashboard">Product</a>
+          <a href="/#ai">AI engine</a>
+          <a href="/services.html">Services</a>
+        </div>
+        <div>
+          <em>Blog</em>
+          <a href="/blogs/how-to-improve-pubg-kd.html">Improve KD</a>
+          <a href="/blogs/best-pubg-weapons.html">Weapon guides</a>
+          <a href="/blogs/pubg-rank-push-guide.html">Rank push</a>
+          <a href="/blogs/fragtrack-ai-explained.html">AI explained</a>
+        </div>
+        <div>
+          <em>Resources</em>
+          <a href="/about.html">About</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/help.html">Help Center</a>
+        </div>
+        <div>
+          <em>Legal</em>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/cookie-policy.html">Cookies</a>
+        </div>
+      </div>
+    </div>
+    <div class="blog-footer__bottom">
+      <span>&copy; 2026 FragTrack Labs. All rights reserved.</span>
+      <span><i class="fa-solid fa-circle" style="color:#22c55e;font-size:8px"></i> All systems normal</span>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script>
+    (() => {
+      const $ = (s, r) => (r || document).querySelector(s);
+      const $$ = (s, r) => [...(r || document).querySelectorAll(s)];
+
+      document.body.classList.add('js-ready');
+
+      const nav = $('#blog-nav');
+      window.addEventListener('scroll', () => nav.classList.toggle('is-scrolled', window.scrollY > 30), { passive: true });
+
+      const burger = $('#blog-burger'), mm = $('#blog-mobile-menu');
+      if (burger && mm) {
+        burger.addEventListener('click', () => {
+          const isOpen = burger.classList.toggle('on');
+          mm.classList.toggle('on');
+          mm.setAttribute('aria-hidden', !isOpen);
+          burger.setAttribute('aria-expanded', isOpen);
+          $$('#blog-mobile-menu a').forEach(a => a.setAttribute('tabindex', isOpen ? '0' : '-1'));
+        });
+        $$('#blog-mobile-menu a').forEach(a => a.addEventListener('click', () => {
+          burger.classList.remove('on');
+          mm.classList.remove('on');
+          mm.setAttribute('aria-hidden', 'true');
+          burger.setAttribute('aria-expanded', 'false');
+          $$('#blog-mobile-menu a').forEach(el => el.setAttribute('tabindex', '-1'));
+        }));
+        document.addEventListener('keydown', e => {
+          if (e.key === 'Escape' && mm.classList.contains('on')) {
+            burger.click();
+            burger.focus();
+          }
+        });
+      }
+
+      const accordions = $$('.accordion');
+      accordions.forEach(acc => {
+        $$('li', acc).forEach(li => {
+          const btn = li.querySelector('button');
+          if (!btn) return;
+          btn.addEventListener('click', () => {
+            const wasOpen = li.classList.contains('on');
+            $$('li', acc).forEach(x => {
+              x.classList.remove('on');
+              const b = x.querySelector('button');
+              if (b) b.setAttribute('aria-expanded', 'false');
+            });
+            if (!wasOpen) {
+              li.classList.add('on');
+              btn.setAttribute('aria-expanded', 'true');
+            }
+          });
+        });
+      });
+
+      setTimeout(() => {
+        $$('.blog-hero .line__inner').forEach(el => el.classList.add('revealed'));
+      }, 100);
+
+      const revealEls = (selector) => {
+        const els = $$(selector);
+        if (els.length === 0) return;
+        if (window.gsap && window.ScrollTrigger) {
+          els.forEach(el => {
+            gsap.to(el, { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true, onEnter: () => el.classList.add('revealed') } });
+          });
+        } else {
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                io.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.1 });
+          els.forEach(el => io.observe(el));
+        }
+      };
+
+      revealEls('.blog-content h2');
+      revealEls('.blog-content h3');
+      revealEls('.blog-content blockquote');
+      revealEls('.blog-content .highlight-box');
+      revealEls('.blog-author');
+      revealEls('.related-card');
+      revealEls('.blog-toc');
+      revealEls('.blog-featured-img');
+      revealEls('.blog-content ul');
+      revealEls('.blog-content ol');
+      revealEls('.blog-content table');
+
+      if (window.gsap && window.ScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+        $$('.line__inner:not(.blog-hero .line__inner)').forEach(el => {
+          gsap.to(el, { y: 0, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true, onEnter: () => el.classList.add('revealed') } });
+        });
+      } else {
+        $$('.line__inner:not(.blog-hero .line__inner)').forEach(el => el.classList.add('revealed'));
+      }
+
+      setTimeout(() => {
+        $$('.js-ready .line__inner:not(.revealed), .js-ready .blog-content h2:not(.revealed), .js-ready .blog-content h3:not(.revealed)').forEach(el => el.classList.add('revealed'));
+      }, 3000);
+    })();
+  </script>
+</body>
+</html>
