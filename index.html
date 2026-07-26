@@ -45,6 +45,116 @@
   <!-- Styles -->
   <link rel="stylesheet" href="/styles.css" />
 
+  <!-- Games marquee — rebuilt to match Pivaga's exact card mechanics (white cards,
+       grayscale-to-color logo reveal on hover, cutout-border badges), translated
+       from Tailwind to plain CSS since this site doesn't load Tailwind. -->
+  <style>
+    .fg-marquee{ overflow:hidden; }
+
+    .fg-marquee__viewport{
+      position:relative;
+      width:100%;
+      margin-top:32px;
+      padding:16px 0 8px;
+      overflow:hidden;
+      -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+      mask-image:linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+    }
+
+    .fg-marquee__track{
+      display:flex;
+      width:max-content;
+      animation:fg-scroll 22s linear infinite;
+    }
+    .fg-marquee__viewport:hover .fg-marquee__track{
+      animation-play-state:paused;
+    }
+    @keyframes fg-scroll{
+      from{ transform:translateX(0); }
+      to{ transform:translateX(-50%); }
+    }
+
+    .fg-marquee__set{
+      display:flex;
+      align-items:center;
+      gap:40px;
+      padding-right:40px;
+    }
+
+    /* card — bg-white rounded-2xl shadow-lg, group-hover:scale-105 + purple glow */
+    .fg-game{
+      position:relative;
+      flex-shrink:0;
+    }
+    .fg-game__card{
+      width:192px;
+      height:80px;
+      background:#FFFFFF;
+      border-radius:16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px;
+      box-shadow:0 10px 24px rgba(0,0,0,.35);
+      transition:transform .3s ease, box-shadow .3s ease;
+    }
+    .fg-game:hover .fg-game__card{
+      transform:scale(1.05);
+      box-shadow:0 16px 32px rgba(118,74,241,.28);
+    }
+
+    /* logo — grayscale + 80% opacity at rest, full color on hover */
+    .fg-game__logo{
+      position:relative;
+      width:100%;
+      height:100%;
+    }
+    .fg-game__logo img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      filter:grayscale(1);
+      opacity:.8;
+      transition:filter .3s ease, opacity .3s ease;
+    }
+    .fg-game:hover .fg-game__logo img{
+      filter:grayscale(0);
+      opacity:1;
+    }
+
+    /* badge — absolute -top-3 -right-3, dark cutout border matching page bg, scales up on hover */
+    .fg-badge{
+      position:absolute;
+      top:-12px; right:-12px;
+      z-index:10;
+      font-family:'Manrope', sans-serif;
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.03em;
+      padding:4px 12px;
+      border-radius:999px;
+      border:2px solid #0B0B0F;
+      box-shadow:0 4px 10px rgba(0,0,0,.4);
+      transition:transform .2s ease;
+    }
+    .fg-game:hover .fg-badge{ transform:scale(1.1); }
+
+    .fg-badge--live{ background:#FEE2E2; color:#DC2626; }
+    .fg-badge--soon{ background:#F3E8FF; color:#9333EA; }
+
+    @media (prefers-reduced-motion: reduce){
+      .fg-marquee__track{ animation:none; }
+    }
+
+    @media (max-width:640px){
+      .fg-game__card{ width:160px; height:68px; }
+    }
+  </style>
+
+
+
   <!-- Security: CSP via meta tag (static site) -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com 'unsafe-inline'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https:; connect-src 'self' https:; frame-src 'none'; object-src 'none'" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
@@ -116,7 +226,7 @@
   <!-- ============== NAV ============== -->
   <header class="nav" id="nav" data-testid="nav-header" role="banner">
     <a href="#top" class="nav__logo" data-testid="nav-logo" aria-label="FragTrack home">
-      <img src="/assets/logo.webp" alt="FragTrack" width="98" height="22" />
+      <img src="/assets/logo.webp" alt="" width="98" height="22" />
     </a>
 
     <nav class="nav__links" aria-label="Primary navigation">
@@ -308,10 +418,141 @@
       </div>
     </section>
 
-    <!-- ============== TRUSTED STATS (CHAPTER 01) ============== -->
-    <section class="chapter stats" id="stats" data-testid="stats" aria-label="Statistics section">
+    <!-- ============== SUPPORTED GAMES (CHAPTER 01) ============== -->
+    <section class="chapter fg-marquee" id="games" data-testid="games-marquee" aria-label="Supported games">
       <div class="chapter__head">
         <div class="chapter__num">01</div>
+        <div class="chapter__label">Supported games</div>
+        <div class="chapter__line"></div>
+      </div>
+
+      <h2 class="chapter__title">
+        <span class="line"><span class="line__inner">Built for competitive</span></span>
+        <span class="line"><span class="line__inner"><em>environments.</em></span></span>
+      </h2>
+      <p class="chapter__lede">Games where preparation matters more than instinct.</p>
+
+      <div class="fg-marquee__viewport">
+        <div class="fg-marquee__track">
+
+          <!-- ===== SET A ===== -->
+          <div class="fg-marquee__set">
+            <div class="fg-game" data-status="live">
+              <div class="fg-game__card">
+                <div class="fg-game__logo">
+                  <img src="/assets/games/pubg-mobile.webp" alt="" onerror="this.style.display='none'" />
+                </div>
+              </div>
+              <span class="fg-badge fg-badge--live">Live</span>
+            </div>
+
+            <div class="fg-game" data-status="soon">
+              <div class="fg-game__card">
+                <div class="fg-game__logo">
+                  <img src="/assets/games/battleground.svg" alt="" onerror="this.style.display='none'" />
+                </div>
+              </div>
+              <span class="fg-badge fg-badge--soon">Soon</span>
+            </div>
+
+            <div class="fg-game" data-status="soon">
+              <div class="fg-game__card">
+                <div class="fg-game__logo">
+                  <img src="/assets/games/valorant.svg" alt="" onerror="this.style.display='none'" />
+                </div>
+              </div>
+              <span class="fg-badge fg-badge--soon">Soon</span>
+            </div>
+
+            <div class="fg-game" data-status="soon">
+              <div class="fg-game__card">
+                <div class="fg-game__logo">
+                  <img src="/assets/games/free-fire.svg" alt="" onerror="this.style.display='none'" />
+                </div>
+              </div>
+              <span class="fg-badge fg-badge--soon">Soon</span>
+            </div>
+
+            <div class="fg-game" data-status="soon">
+              <div class="fg-game__card">
+                <div class="fg-game__logo">
+                  <img src="/assets/games/cs2.svg" alt="" onerror="this.style.display='none'" />
+                </div>
+              </div>
+              <span class="fg-badge fg-badge--soon">Soon</span>
+            </div>
+
+            <div class="fg-game" data-status="soon">
+              <div class="fg-game__card">
+                <div class="fg-game__logo">
+                  <img src="/assets/games/call-duty.svg" alt="" onerror="this.style.display='none'" />
+                </div>
+              </div>
+              <span class="fg-badge fg-badge--soon">Soon</span>
+            </div>
+          </div>
+
+          <!-- ===== SET B (duplicate, hidden from a11y, for the seamless loop) ===== -->
+          <div class="fg-marquee__set" aria-hidden="true">
+            <div class="fg-game" data-status="live">
+              <div class="fg-game__card">
+                <div class="fg-game__logo">
+                  <img src="/assets/games/pubg-mobile.webp" alt="" onerror="this.style.display='none'" />
+                </div>
+              </div>
+              <span class="fg-badge fg-badge--live">Live</span>
+            </div>
+            <div class="fg-game" data-status="soon">
+              <div class="fg-game__card">
+                <div class="fg-game__logo">
+                  <img src="/assets/games/battleground.svg" alt="" onerror="this.style.display='none'" />
+                </div>
+              </div>
+              <span class="fg-badge fg-badge--soon">Soon</span>
+            </div>
+            <div class="fg-game" data-status="soon">
+              <div class="fg-game__card">
+                <div class="fg-game__logo">
+                  <img src="/assets/games/valorant.svg" alt="" onerror="this.style.display='none'" />
+                </div>
+              </div>
+              <span class="fg-badge fg-badge--soon">Soon</span>
+            </div>
+            <div class="fg-game" data-status="soon">
+              <div class="fg-game__card">
+                <div class="fg-game__logo">
+                  <img src="/assets/games/free-fire.svg" alt="" onerror="this.style.display='none'" />
+                </div>
+              </div>
+              <span class="fg-badge fg-badge--soon">Soon</span>
+            </div>
+            <div class="fg-game" data-status="soon">
+              <div class="fg-game__card">
+                <div class="fg-game__logo">
+                  <img src="/assets/games/cs2.svg" alt="" onerror="this.style.display='none'" />
+                </div>
+              </div>
+              <span class="fg-badge fg-badge--soon">Soon</span>
+            </div>
+            <div class="fg-game" data-status="soon">
+              <div class="fg-game__card">
+                <div class="fg-game__logo">
+                  <img src="/assets/games/call-duty.svg" alt="" onerror="this.style.display='none'" />
+                </div>
+              </div>
+              <span class="fg-badge fg-badge--soon">Soon</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============== TRUSTED STATS (CHAPTER 02) ============== -->
+    <section class="chapter stats" id="stats" data-testid="stats" aria-label="Statistics section">
+      <div class="chapter__head">
+        <div class="chapter__num">02</div>
         <div class="chapter__label">Trusted worldwide</div>
         <div class="chapter__line"></div>
       </div>
@@ -358,7 +599,7 @@
     <!-- ============== FEATURES (CHAPTER 02) ============== -->
     <section class="chapter features" id="features" data-testid="features" aria-label="Features section">
       <div class="chapter__head">
-        <div class="chapter__num">02</div>
+        <div class="chapter__num">03</div>
         <div class="chapter__label">Features</div>
         <div class="chapter__line"></div>
       </div>
@@ -425,7 +666,7 @@
     <!-- ============== HOW IT WORKS (CHAPTER 03) ============== -->
     <section class="chapter how" id="how" data-testid="how" aria-label="How it works section">
       <div class="chapter__head">
-        <div class="chapter__num">03</div>
+        <div class="chapter__num">04</div>
         <div class="chapter__label">How it works</div>
         <div class="chapter__line"></div>
       </div>
@@ -482,7 +723,7 @@
     <!-- ============== DASHBOARD PREVIEW (CHAPTER 04) ============== -->
     <section class="chapter dashboard" id="dashboard" data-testid="dashboard-preview" aria-label="Dashboard preview section">
       <div class="chapter__head">
-        <div class="chapter__num">04</div>
+        <div class="chapter__num">05</div>
         <div class="chapter__label">Product</div>
         <div class="chapter__line"></div>
       </div>
@@ -623,7 +864,7 @@
     <!-- ============== ANALYTICS SHOWCASE (CHAPTER 05) ============== -->
     <section class="chapter analytics" id="analytics" data-testid="analytics" aria-label="Analytics section">
       <div class="chapter__head">
-        <div class="chapter__num">05</div>
+        <div class="chapter__num">06</div>
         <div class="chapter__label">Analytics</div>
         <div class="chapter__line"></div>
       </div>
@@ -698,7 +939,7 @@
     <!-- ============== AI INTELLIGENCE (CHAPTER 06) ============== -->
     <section class="chapter ai" id="ai" data-testid="ai" aria-label="AI Intelligence section">
       <div class="chapter__head">
-        <div class="chapter__num">06</div>
+        <div class="chapter__num">07</div>
         <div class="chapter__label">AI Intelligence</div>
         <div class="chapter__line"></div>
       </div>
@@ -746,7 +987,7 @@
     <!-- ============== TESTIMONIALS ============== -->
     <section class="chapter testimonials" id="testimonials" data-testid="testimonials" aria-label="Testimonials section">
       <div class="chapter__head">
-        <div class="chapter__num">07</div>
+        <div class="chapter__num">08</div>
         <div class="chapter__label">Testimonials</div>
         <div class="chapter__line"></div>
       </div>
@@ -805,7 +1046,7 @@
     <!-- ============== FAQ ============== -->
     <section class="chapter faq" id="faq" data-testid="faq" aria-label="Frequently asked questions">
       <div class="chapter__head">
-        <div class="chapter__num">08</div>
+        <div class="chapter__num">09</div>
         <div class="chapter__label">FAQ</div>
         <div class="chapter__line"></div>
       </div>
@@ -872,7 +1113,7 @@
   <footer class="footer" data-testid="footer" role="contentinfo">
     <div class="footer__top">
       <div class="footer__brand">
-        <img src="/landing/assets/logo.png" alt="FragTrack" width="120" height="26" />
+        <img src="/landing/assets/logo.png" alt="" width="120" height="26" />
         <p>AI analytics for competitive PUBG Mobile &mdash; built by players, for players.</p>
         <div class="socials">
           <a href="#" aria-label="Follow FragTrack on X (Twitter)" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
