@@ -4,6 +4,35 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
+  /* ============ UTM / ATTRIBUTION CAPTURE ============
+     Runs on every page. First-touch attribution: if the visitor arrives with
+     UTM params in the URL (e.g. from a Reddit post or ad), store them in
+     sessionStorage so they're still available later even if the person
+     browses to a different page (like /contact.html) before submitting a
+     form. Only sets it once per session — later page views without UTM
+     params won't overwrite the original source. */
+  (function captureAttribution() {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const hasUtm = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']
+        .some((k) => params.get(k));
+
+      if (hasUtm && !sessionStorage.getItem('ft_attribution')) {
+        sessionStorage.setItem('ft_attribution', JSON.stringify({
+          utm_source: params.get('utm_source') || '',
+          utm_medium: params.get('utm_medium') || '',
+          utm_campaign: params.get('utm_campaign') || '',
+          utm_term: params.get('utm_term') || '',
+          utm_content: params.get('utm_content') || '',
+          landing_page: window.location.pathname + window.location.search,
+        }));
+      }
+    } catch (e) {
+      // sessionStorage can throw in some privacy modes — attribution is
+      // best-effort only, never block the page for it.
+    }
+  })();
+
   /* ============ PRELOADER ============ */
   const preloader = $('#preloader');
   const barSpan   = preloader ? $('.preloader__bar span') : null;
@@ -529,7 +558,6 @@
     safe('initScroll', initScroll);
     safe('initGsapReveals', initGsapReveals);
     safe('setNav', setNav);
-    safe('setActive', setActive);
     safe('onScrollProgress', onScrollProgress);
   });
 })();

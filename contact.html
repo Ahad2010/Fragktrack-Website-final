@@ -42,7 +42,7 @@
   <!-- Styles -->
   <link rel="stylesheet" href="/styles.css" />
 
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com 'unsafe-inline'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https:; connect-src 'self' https:; frame-src 'none'; object-src 'none'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com 'unsafe-inline'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https:; connect-src 'self' https: http://localhost; frame-src 'none'; object-src 'none'" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
@@ -147,14 +147,14 @@
           <i class="fa-solid fa-envelope" aria-hidden="true"></i>
           <div>
             <b>General &amp; support</b>
-            <span><a href="mailto:support@fragtrack.app">support@fragtrack.app</a> &middot; replies within 1&ndash;2 business days</span>
+            <span><a href="mailto:fragtrack.site@gmail.com">fragtrack.site@gmail.com</a> &middot; replies within 1&ndash;2 business days</span>
           </div>
         </div>
         <div class="contact-channel">
           <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
           <div>
             <b>Teams &amp; partnerships</b>
-            <span><a href="mailto:teams@fragtrack.app">teams@fragtrack.app</a> &middot; for orgs, coaches and tournament integrations</span>
+            <span><a href="mailto:fragtrack.site@gmail.com">fragtrack.site@gmail.com</a> &middot; for orgs, coaches and tournament integrations</span>
           </div>
         </div>
         <div class="contact-channel">
@@ -168,7 +168,7 @@
           <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
           <div>
             <b>Privacy &amp; data requests</b>
-            <span><a href="mailto:privacy@fragtrack.app">privacy@fragtrack.app</a> &middot; account deletion or data export</span>
+            <span><a href="mailto:fragtrack.site@gmail.com">fragtrack.site@gmail.com</a> &middot; account deletion or data export</span>
           </div>
         </div>
       </div>
@@ -178,9 +178,8 @@
       <h2 style="font-family:var(--font-display);font-weight:400;font-size:22px;margin-bottom:6px">Send a message</h2>
       <p style="color:var(--ink-2);font-size:13.5px;margin-bottom:24px">We'll get back to you at the email you provide.</p>
 
-      <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="contact" />
-        <p class="sr-only"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
+      <form id="contact-form" name="contact" method="POST">
+        <p class="sr-only"><label>Don't fill this out if you're human: <input name="bot-field" id="cf-honeypot" /></label></p>
 
         <div class="form-row">
           <label for="cf-name">Name</label>
@@ -210,6 +209,7 @@
           <span>Send message</span>
           <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
         </button>
+        <p id="contact-error" style="display:none;color:#f87171;font-size:13px;margin-top:10px"></p>
         <p class="form-note">By sending this, you're okay with us emailing you back about your question. We won't add you to any marketing list from this form.</p>
       </form>
 
@@ -222,21 +222,69 @@
   </div>
 
   <script>
-    // Progressive enhancement: show inline success state for Netlify Forms
-    // without a full page reload, while still working if JS is disabled.
     (function(){
+      // Point this at wherever your PHP backend actually lives — the same
+      // domain as your dashboard API.
+      var CONTACT_API_URL = 'http://localhost/fragk-backend-php/api/contact.php';
+
       var form = document.getElementById('contact-form');
       if (!form) return;
+
       form.addEventListener('submit', function(e){
         e.preventDefault();
-        var data = new FormData(form);
-        fetch('/', { method: 'POST', body: data })
+
+        // Simple honeypot check — bots fill every field, humans never see this one.
+        var honeypot = document.getElementById('cf-honeypot');
+        if (honeypot && honeypot.value) return;
+
+        var submitBtn = form.querySelector('button[type="submit"]');
+        var errorEl = document.getElementById('contact-error');
+
+        // Pull attribution data captured on the visitor's landing page (see
+        // the captureAttribution() snippet in app.js). Falls back to empty
+        // strings if the visitor came in with no UTM params at all.
+        var attribution = {};
+        try {
+          attribution = JSON.parse(sessionStorage.getItem('ft_attribution') || '{}');
+        } catch (e) {}
+
+        var payload = {
+          name: document.getElementById('cf-name').value.trim(),
+          email: document.getElementById('cf-email').value.trim(),
+          topic: document.getElementById('cf-topic').value,
+          message: document.getElementById('cf-message').value.trim(),
+          utmSource: attribution.utm_source || '',
+          utmMedium: attribution.utm_medium || '',
+          utmCampaign: attribution.utm_campaign || '',
+          utmTerm: attribution.utm_term || '',
+          utmContent: attribution.utm_content || '',
+          landingPage: attribution.landing_page || '',
+        };
+
+        if (errorEl) errorEl.style.display = 'none';
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.querySelector('span').textContent = 'Sending…'; }
+
+        fetch(CONTACT_API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        })
+          .then(function(res){
+            if (!res.ok) return res.json().then(function(d){ throw new Error(d.error || 'Something went wrong'); });
+            return res.json();
+          })
           .then(function(){
             form.style.display = 'none';
             var s = document.getElementById('contact-success');
             if (s) s.style.display = 'block';
           })
-          .catch(function(){ form.submit(); });
+          .catch(function(err){
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.querySelector('span').textContent = 'Send message'; }
+            if (errorEl) {
+              errorEl.textContent = err.message || 'Failed to send — please try again or email us directly.';
+              errorEl.style.display = 'block';
+            }
+          });
       });
     })();
   </script>
@@ -246,7 +294,7 @@
   <footer class="footer" data-testid="footer" role="contentinfo">
     <div class="footer__top">
       <div class="footer__brand">
-        <img src="/landing/assets/logo.png" alt="FragTrack" width="120" height="26" />
+        <img src="/assets/logo.webp" alt="FragTrack" width="120" height="26" />
         <p>AI analytics for competitive PUBG Mobile &mdash; built by players, for players.</p>
         <div class="socials">
           <a href="#" aria-label="Follow FragTrack on X (Twitter)" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
